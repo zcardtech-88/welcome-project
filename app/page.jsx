@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Phone, MessageCircle, MapPin, Share2, QrCode, ChevronDown, CheckCircle2, CarFront, Star, AlignLeft, Images, CirclePlay, UserRoundCheck, ShareNodes, Mail, Instagram, Facebook, Linkedin } from 'lucide-react'
+import { Phone, MessageCircle, MapPin, Share2, QrCode, ChevronDown, CheckCircle2, CarFront, Star, AlignLeft, Images, CirclePlay, UserRoundCheck, Mail } from 'lucide-react'
 
 const vehicle = {
   cover_image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1600&q=85',
@@ -24,7 +24,7 @@ const vehicle = {
 }
 
 const sections = [
-  ['specs','Vehicle Specifications',CarFront], ['highlights','Highlights',Star], ['description','Description',AlignLeft], ['gallery','Gallery',Images], ['video','Featured Video',CirclePlay], ['seller','Seller',UserRoundCheck], ['social','Social Links',ShareNodes]
+  ['specs','Vehicle Specifications',CarFront], ['highlights','Highlights',Star], ['description','Description',AlignLeft], ['gallery','Gallery',Images], ['video','Featured Video',CirclePlay], ['seller','Seller',UserRoundCheck], ['social','Social Links',Share2]
 ]
 
 export default function AutomotiveCard(){
@@ -61,7 +61,7 @@ export default function AutomotiveCard(){
         {id==='gallery' && <div className="gallery"><img src={vehicle.gallery[gallery]} alt="Vehicle gallery"/><div className="gallery-nav"><button onClick={()=>setGallery((gallery-1+vehicle.gallery.length)%vehicle.gallery.length)}>‹</button><span>{gallery+1} / {vehicle.gallery.length}</span><button onClick={()=>setGallery((gallery+1)%vehicle.gallery.length)}>›</button></div><div className="thumbs">{vehicle.gallery.map((src,i)=><button key={src} onClick={()=>setGallery(i)} className={gallery===i?'active':''}><img src={src} alt="thumb"/></button>)}</div></div>}
         {id==='video' && <div className="video"><img src={vehicle.video_thumbnail} alt="Featured vehicle video"/><div className="play"><CirclePlay size={54}/></div></div>}
         {id==='seller' && <div className="seller"><div className="avatar">AH</div><div className="seller-info"><h3>{vehicle.seller_name}<CheckCircle2 size={15}/></h3><p>{vehicle.seller_title}</p><p>{vehicle.seller_company}</p></div><div className="seller-actions"><button><Phone size={17}/>Call</button><button><MessageCircle size={17}/>WhatsApp</button><button><Mail size={17}/>Email</button></div></div>}
-        {id==='social' && <div className="socials"><a href={vehicle.website}><span>⌁</span></a><a href={vehicle.instagram}><Instagram size={20}/></a><a href={vehicle.facebook}><Facebook size={20}/></a><a href={vehicle.youtube}><CirclePlay size={20}/></a><a href={vehicle.linkedin}><Linkedin size={20}/></a></div>}
+        {id==='social' && <div className="socials"><a href={vehicle.website}><span>W</span></a><a href={vehicle.instagram}><span>IG</span></a><a href={vehicle.facebook}><span>F</span></a><a href={vehicle.youtube}><span>YT</span></a><a href={vehicle.linkedin}><span>in</span></a></div>}
       </div>}
     </section>)}</div>
     <footer>Z CARD · Automotive</footer>
