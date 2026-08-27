@@ -12,6 +12,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: automotive-template
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,16 +22,15 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
+          cache-dependency-path: automotive-template/package-lock.json
 
-      - name: Install
-        run: npm install
-        working-directory: automotive-template
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build
         run: npm run build
-        working-directory: automotive-template
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
