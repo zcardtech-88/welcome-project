@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#FAFAF8" />
+  <meta name="description" content="Z Personal — create your free premium digital identity card." />
+  <title>Z Personal — Your Digital Identity. All in One Card.</title>
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Z Card home"><span class="brand-z">Z</span><span>CARD</span></a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#how">How It Works</a><a href="#features">Features</a><a href="#examples">Examples</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-actions"><button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☼</button><a class="btn btn-gold btn-small" href="#builder">Create My Card</a></div>
+  </header>
+
+  <main id="top">
+    <section class="hero section-wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Z PERSONAL</span>
+        <h1>Your Digital Identity.<br><em>All in One Card.</em></h1>
+        <p class="hero-lead">Create your free personal Z Card and share everything about you with one simple link.</p>
+        <p class="hero-sub">Your contact details, social links, portfolio and professional identity — beautifully organized in one interactive card.</p>
+        <div class="hero-ctas"><a class="btn btn-gold" href="#builder">Create My Free Z Card</a><a class="btn btn-ghost" href="#examples">See Example</a></div>
+        <p class="reassure">Free to create · No credit card required</p>
+      </div>
+      <div class="hero-visual">
+        <div class="float-stat stat-a"><strong>1,248</strong><span>Profile Views</span></div>
+        <div class="float-stat stat-b">↗ <span>Shared</span></div>
+        <article class="identity-card theme-white" id="heroCard">
+          <div class="card-top"><span class="mini-brand">Z CARD</span><span class="verified-dot">✓ Verified</span></div>
+          <img class="avatar-lg" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=85" alt="{{profile_image}}" />
+          <div class="identity"><h3 data-preview="name">Sara Al-Harbi</h3><p data-preview="title">Senior Graphic Designer</p><span data-preview="company">Creative Studio</span></div>
+          <p class="bio" data-preview="bio">Passionate graphic designer creating modern visual identities, branding systems and digital experiences.</p>
+          <div class="quick-grid"><a href="tel:+966500000000">Call</a><a href="https://wa.me/966500000000" target="_blank" rel="noreferrer">WhatsApp</a><a href="mailto:sara@example.com">Email</a><button type="button" data-scroll="builder">Save Contact</button></div>
+          <div class="social-row"><a href="#builder">in</a><a href="#builder">ig</a><a href="#builder">◎</a><a href="#builder">web</a></div>
+          <div class="card-footer"><button type="button" class="share-mini" data-action="share">Share</button><button type="button" class="qr-mini" data-action="qr">QR</button></div>
+        </article>
+        <div class="qr-float"><span class="qr-grid">▦</span><div><strong>QR Code</strong><small>Scan to connect</small></div></div>
+      </div>
+    </section>
+
+    <section class="builder section-wrap" id="builder">
+      <div class="section-heading"><span class="eyebrow">BUILD IT LIVE</span><h2>Create your card in minutes.</h2><p>Start with the essentials. Your preview updates instantly.</p></div>
+      <div class="builder-shell">
+        <form class="builder-form" id="cardForm">
+          <div class="form-tabs"><button class="active" type="button" data-tab="edit">EDIT</button><button type="button" data-tab="preview">PREVIEW</button></div>
+          <label>Full Name<input id="fullName" name="full_name" value="Sara Al-Harbi" required /></label>
+          <label>Professional Title<input id="jobTitle" name="job_title" value="Senior Graphic Designer" required /></label>
+          <label>Phone Number<input id="phone" name="phone_number" value="+966 50 000 0000" inputmode="tel" required /></label>
+          <label>Profile Photo<input id="profilePhoto" name="profile_photo" value="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=85" /></label>
+          <label>Short Bio<textarea id="shortBio" name="short_bio" rows="3">Passionate graphic designer creating modern visual identities, branding systems and digital experiences.</textarea></label>
+          <div class="form-row"><label>WhatsApp<input id="whatsapp" value="966500000000" /></label><label>Instagram<input id="instagram" value="instagram.com/sara" /></label></div>
+          <div class="form-row"><label>LinkedIn<input id="linkedin" value="linkedin.com/in/sara" /></label><label>Website<input id="website" value="sara.design" /></label></div>
+          <label>Portfolio / Resume<input id="portfolio" value="behance.net/sara" /></label>
+          <div class="theme-picker"><span>Card Theme</span><div><button type="button" class="swatch active" data-card-theme="theme-white">Minimal White</button><button type="button" class="swatch" data-card-theme="theme-gold">Luxury Gold</button><button type="button" class="swatch" data-card-theme="theme-glass">Modern Glass</button><button type="button" class="swatch" data-card-theme="theme-dark">Dark Premium</button></div></div>
+          <button class="btn btn-gold full" type="submit">Create My Z Card</button>
+          <p class="tiny-note">Your card is prepared locally in this demo. Real account creation is isolated behind the service layer.</p>
+        </form>
+        <div class="builder-preview-wrap">
+          <div class="preview-label"><span>LIVE PREVIEW</span><span id="previewStatus">Ready</span></div>
+          <article class="identity-card theme-white" id="liveCard">
+            <div class="card-top"><span class="mini-brand">Z CARD</span><span class="verified-dot">✓ Verified</span></div>
+            <img class="avatar-lg" id="previewImage" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=85" alt="Profile preview" loading="lazy" />
+            <div class="identity"><h3 id="previewName">Sara Al-Harbi</h3><p id="previewTitle">Senior Graphic Designer</p><span>Creative Studio</span></div>
+            <p class="bio" id="previewBio">Passionate graphic designer creating modern visual identities, branding systems and digital experiences.</p>
+            <div class="quick-grid"><button type="button" data-demo="call">Call</button><button type="button" data-demo="whatsapp">WhatsApp</button><button type="button" data-demo="email">Email</button><button type="button" data-demo="save">Save Contact</button></div>
+            <div class="social-row"><span>in</span><span>ig</span><span>◎</span><span>web</span></div>
+            <div class="card-footer"><button type="button" class="share-mini" data-action="share">Share</button><button type="button" class="qr-mini" data-action="qr">QR</button></div>
+          </article>
+          <div class="preview-tools"><button type="button" data-action="copy">Copy Link</button><button type="button" data-action="share">Native Share</button><button type="button" data-action="qr">Generate QR</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="value section-wrap" id="features"><div class="section-heading"><span class="eyebrow">ONE SMART CARD</span><h2>Everything about you. One smart card.</h2></div><div class="feature-grid">
+      <article><span>01</span><h3>Your Identity</h3><p>Name, title, bio and professional profile.</p></article><article><span>02</span><h3>Your Links</h3><p>WhatsApp, social media, website and important links.</p></article><article><span>03</span><h3>Your Work</h3><p>Portfolio, resume and professional content.</p></article><article><span>04</span><h3>Your Contact</h3><p>Let people call, message or save your information instantly.</p></article>
+    </div></section>
+
+    <section class="how section-wrap" id="how"><div class="section-heading"><span class="eyebrow">HOW IT WORKS</span><h2>From first glance to first connection.</h2></div><div class="steps"><article><span>01</span><h3>Create</h3><p>Add your basic information.</p></article><div class="step-line"></div><article><span>02</span><h3>Customize</h3><p>Choose your style and add your links.</p></article><div class="step-line"></div><article><span>03</span><h3>Share</h3><p>Send one link or QR code.</p></article></div></section>
+
+    <section class="examples section-wrap" id="examples"><div class="section-heading"><span class="eyebrow">REAL CARD EXAMPLES</span><h2>Made for the way you introduce yourself.</h2></div><div class="example-row">
+      <article class="mini-card"><span>ENTREPRENEUR</span><h3>Omar Khaled</h3><p>Founder · Cairo</p><div class="mini-actions">Call · WhatsApp · Website</div></article>
+      <article class="mini-card"><span>DESIGNER</span><h3>Sara Al-Harbi</h3><p>Senior Designer · Riyadh</p><div class="mini-actions">Portfolio · Instagram · LinkedIn</div></article>
+      <article class="mini-card"><span>DEVELOPER</span><h3>Adam Chen</h3><p>Frontend Engineer · Dubai</p><div class="mini-actions">GitHub · LinkedIn · Email</div></article>
+      <article class="mini-card"><span>CREATOR</span><h3>Maya Noor</h3><p>Photographer · Jeddah</p><div class="mini-actions">Gallery · YouTube · Website</div></article>
+    </div></section>
+
+    <section class="app section-wrap"><div class="app-copy"><span class="eyebrow">YOUR CARD, ALWAYS WITH YOU</span><h2>Your card should always be with you.</h2><p>Save and manage your Z Card from the Z Card app.</p><div class="store-row"><a href="#" aria-label="App Store placeholder"> App Store <small>PLACEHOLDER</small></a><a href="#" aria-label="Google Play placeholder">▶ Google Play <small>PLACEHOLDER</small></a></div></div><div class="phone-mock"><div class="phone-notch"></div><div class="phone-screen"><span>Z CARD</span><h3>My Z Card</h3><div class="screen-profile"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=220&q=80" alt="Preview profile" loading="lazy"/><div><strong>Sara Al-Harbi</strong><small>Senior Graphic Designer</small></div></div><div class="screen-grid"><span>✎ Edit Card</span><span>↗ Share</span><span>▦ QR Code</span><span>◫ Analytics</span></div></div></div></section>
+
+    <section class="faq section-wrap" id="faq"><div class="section-heading"><span class="eyebrow">FAQ</span><h2>Simple answers.</h2></div><div class="faq-list">
+      <details open><summary>What is Z Card?</summary><p>Z Card is a digital identity platform that lets you share your professional information, links and contact options through one smart card.</p></details>
+      <details><summary>Is Z Personal free?</summary><p>Yes. The personal card experience is designed to be free to create and easy to share.</p></details>
+      <details><summary>Can I share my card on WhatsApp and social media?</summary><p>Yes. The card is built around a shareable link, QR code and native device sharing.</p></details>
+      <details><summary>Can I edit my card later?</summary><p>Yes in the intended product flow. This demo keeps editing local until the real account API is connected.</p></details>
+      <details><summary>How do I save my card in the app?</summary><p>The intended flow is phone verification followed by attaching the unclaimed card to the authenticated Z Card account. This demo exposes the integration point without faking authentication.</p></details>
+    </div></section>
+
+    <section class="final-cta section-wrap"><span class="eyebrow">Z PERSONAL</span><h2>Create your digital identity.</h2><p>Your next introduction can be one simple link.</p><a class="btn btn-gold" href="#builder">Create My Free Z Card</a></section>
+  </main>
+
+  <footer class="footer section-wrap"><div><a class="brand" href="#top"><span class="brand-z">Z</span><span>CARD</span></a><p>Personal digital identity.</p></div><div class="footer-links"><a href="#top">Home</a><a href="#builder">Create Card</a><a href="#examples">Examples</a><a href="#faq">FAQ</a><a href="#">Privacy</a><a href="#">Terms</a></div><div class="footer-note">© 2026 Z Card</div></footer>
+
+  <div class="modal" id="successModal" aria-hidden="true"><div class="modal-panel"><button class="modal-close" data-close="successModal">×</button><span class="eyebrow">CARD CREATED</span><h2>Your Z Card is Ready.</h2><p>This demo generated a local card record. Download the app when your production account flow is connected.</p><div class="modal-card-slot"></div><div class="modal-actions"><button class="btn btn-gold" data-action="share">Share My Card</button><button class="btn btn-ghost" data-action="copy">Copy Link</button></div><small class="tiny-note">Production integration point: card_id · phone_number · account claim API.</small></div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
