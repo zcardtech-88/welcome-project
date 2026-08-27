@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Z Card Personal — premium digital identity card demo.">
+  <title>Z Card Personal — Sara Al-Harbi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="viewport">
+    <article class="card" data-card>
+      <header class="hero" data-cover>
+        <img class="cover" src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=85" alt="Premium modern office">
+        <div class="hero-shade"></div>
+        <div class="hero-copy">
+          <div class="badge">✓ Verified</div>
+          <div class="profile-float"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=500&q=90" alt="Sara Al-Harbi" loading="eager"></div>
+          <div class="eyebrow">Z CARD · PERSONAL</div>
+          <h1>{{full_name}}</h1>
+          <p class="title">{{job_title}} · {{company_name}}</p>
+          <p class="location">⌖ {{location}}</p>
+          <p class="bio">{{short_bio}}</p>
+        </div>
+      </header>
+
+      <div class="sticky-bar" data-sticky>
+        <div class="mini-profile"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=160&q=80" alt=""></div>
+        <div class="sticky-person"><strong>{{full_name}}</strong><span>{{job_title}}</span></div>
+        <button class="icon-btn" data-action="share" aria-label="Share">↗</button>
+        <button class="icon-btn" data-action="qr" aria-label="QR Code">⌗</button>
+      </div>
+
+      <section class="content">
+        <section class="quick section-card" data-section>
+          <div class="action-grid">
+            <a href="tel:+966500000000" class="action primary"><span>☎</span>Call</a>
+            <a href="https://wa.me/966500000000" class="action"><span>◉</span>WhatsApp</a>
+            <a href="mailto:sara@creativestudio.sa" class="action"><span>✉</span>Email</a>
+            <button class="action" data-action="save"><span>＋</span>Save Contact</button>
+          </div>
+        </section>
+
+        <section class="section-card" data-section>
+          <div class="section-head"><div><span class="section-kicker">PROFILE</span><h2>About Me</h2></div></div>
+          <p class="about-copy">{{about_me}}</p>
+          <div class="about-stats">
+            <div><span>Experience</span><strong>{{experience_years}} Years</strong></div>
+            <div><span>Languages</span><strong>{{languages}}</strong></div>
+          </div>
+        </section>
+
+        <section class="section-card" data-section>
+          <div class="section-head"><div><span class="section-kicker">EXPERTISE</span><h2>Services</h2></div><span class="scroll-hint">Swipe →</span></div>
+          <div class="rail">
+            <article class="service"><span class="service-icon">✦</span><h3>Brand Identity</h3><p>Distinct visual systems for modern brands.</p></article>
+            <article class="service"><span class="service-icon">◈</span><h3>Logo Design</h3><p>Minimal marks built for recognition.</p></article>
+            <article class="service"><span class="service-icon">⌘</span><h3>UI Design</h3><p>Elegant digital experiences with purpose.</p></article>
+          </div>
+        </section>
+
+        <section class="section-card" data-section>
+          <div class="section-head"><div><span class="section-kicker">MILESTONES</span><h2>Achievements</h2></div><span class="scroll-hint">Swipe →</span></div>
+          <div class="rail achievements">
+            <article class="achievement"><img src="https://images.unsplash.com/photo-1553484771-371a605b060b?auto=format&fit=crop&w=700&q=85" alt="Certificate" loading="lazy"><div><span>2024</span><h3>Adobe Certified Expert</h3><p>Advanced creative tools & visual systems.</p></div></article>
+            <article class="achievement"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=85" alt="Featured project" loading="lazy"><div><span>2024</span><h3>Behance Featured Project</h3><p>Recognized for premium identity design.</p></div></article>
+          </div>
+        </section>
+
+        <section class="section-card" data-section>
+          <div class="section-head"><div><span class="section-kicker">SELECTED WORK</span><h2>Gallery</h2></div><span class="scroll-hint">Swipe →</span></div>
+          <div class="rail gallery">
+            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=900&q=85" alt="Brand design" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=900&q=85" alt="Interface design" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=900&q=85" alt="Visual identity" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85" alt="Studio" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=900&q=85" alt="Product design" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=85" alt="Creative team" loading="lazy">
+          </div>
+        </section>
+
+        <section class="section-card" data-section>
+          <div class="section-head"><div><span class="section-kicker">FEATURED</span><h2>Video</h2></div></div>
+          <button class="video" data-action="video" aria-label="Play featured video"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85" alt="Featured video" loading="lazy"><span class="play">▶</span></button>
+        </section>
+
+        <section class="section-card" data-section>
+          <div class="section-head"><div><span class="section-kicker">CONNECT</span><h2>Social Links</h2></div></div>
+          <div class="socials">
+            <a href="https://linkedin.com" aria-label="LinkedIn">in</a>
+            <a href="https://instagram.com" aria-label="Instagram">IG</a>
+            <a href="https://facebook.com" aria-label="Facebook">f</a>
+            <a href="https://x.com" aria-label="X">𝕏</a>
+            <a href="https://youtube.com" aria-label="YouTube">YT</a>
+            <a href="https://behance.net" aria-label="Behance">Bē</a>
+            <a href="https://dribbble.com" aria-label="Dribbble">●</a>
+            <a href="https://example.com" aria-label="Website">W</a>
+          </div>
+        </section>
+      </section>
+
+      <button class="create-card" data-action="create">Create Your Z Card</button>
+      <nav class="dock" data-dock aria-label="Quick actions">
+        <a href="tel:+966500000000">☎</a>
+        <a href="https://wa.me/966500000000">◉</a>
+        <button data-action="share">↗</button>
+        <button data-action="qr">⌗</button>
+      </nav>
+      <footer>Z CARD · PERSONAL</footer>
+    </article>
+  </main>
+  <div class="toast" data-toast></div>
+  <script src="script.js" defer></script>
+</body>
+</html>
