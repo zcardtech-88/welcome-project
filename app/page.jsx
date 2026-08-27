@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Phone, MessageCircle, MapPin, Share2, QrCode, ChevronDown, CheckCircle2, CarFront, Star, AlignLeft, Images, CirclePlay, UserRoundCheck, ShareNodes, Mail, Instagram, Facebook, Youtube, Linkedin } from 'lucide-react'
+import { Phone, MessageCircle, MapPin, Share2, QrCode, ChevronDown, CheckCircle2, CarFront, Star, AlignLeft, Images, CirclePlay, UserRoundCheck, ShareNodes, Mail, Instagram, Facebook, Linkedin } from 'lucide-react'
 
 const vehicle = {
   cover_image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1600&q=85',
@@ -35,9 +35,7 @@ export default function AutomotiveCard(){
     ['Leather Seats', vehicle.leather_seats], ['Panoramic Sunroof', vehicle.sunroof], ['360° Camera', vehicle.rear_camera], ['Apple CarPlay', vehicle.apple_carplay], ['Android Auto', vehicle.android_auto], ['Navigation', vehicle.navigation], ['Blind Spot Monitor', true], ['Adaptive Cruise Control', vehicle.cruise_control], ['Wireless Charger', true], ['Premium Sound System', true]
   ].filter(([,v])=>v)
   const specs = [['Brand',vehicle.brand],['Model',vehicle.model],['Year',vehicle.year],['Mileage',vehicle.mileage],['Transmission',vehicle.transmission],['Fuel Type',vehicle.fuel_type],['Engine Size',vehicle.engine_size],['Horsepower',vehicle.horsepower],['Exterior Color',vehicle.exterior_color]]
-  const actions = [
-    [Phone,'Call'],[MessageCircle,'WhatsApp'],[MapPin,'Location'],[Share2,'Share'],[QrCode,'QR Code']
-  ]
+  const actions = [[Phone,'Call'],[MessageCircle,'WhatsApp'],[MapPin,'Location'],[Share2,'Share'],[QrCode,'QR Code']]
   return <main className="page-shell"><div className="card-wrap">
     <header className="hero">
       <img src={vehicle.cover_image} alt="Mercedes-Benz G63 AMG" className="cover" />
@@ -52,11 +50,8 @@ export default function AutomotiveCard(){
         <div className="meta-row"><span>{vehicle.condition}</span><span>{vehicle.badge}</span></div>
       </div>
     </header>
-
     <div className="sticky-title"><div><span>{vehicle.brand}</span><strong>{vehicle.model}</strong></div><b>{vehicle.currency} {vehicle.price}</b></div>
-
     <div className="actions">{actions.map(([Icon,label])=><button key={label} aria-label={label}><Icon size={18}/><span>{label}</span></button>)}</div>
-
     <div className="sections">{sections.map(([id,title,Icon])=> <section key={id} className="accordion">
       <button className="accordion-head" onClick={()=>toggle(id)}><span className="section-title"><Icon size={18}/><b>{title}</b></span><ChevronDown size={18} className={open===id?'rot':''}/></button>
       {open===id && <div className="accordion-body">
@@ -66,7 +61,7 @@ export default function AutomotiveCard(){
         {id==='gallery' && <div className="gallery"><img src={vehicle.gallery[gallery]} alt="Vehicle gallery"/><div className="gallery-nav"><button onClick={()=>setGallery((gallery-1+vehicle.gallery.length)%vehicle.gallery.length)}>‹</button><span>{gallery+1} / {vehicle.gallery.length}</span><button onClick={()=>setGallery((gallery+1)%vehicle.gallery.length)}>›</button></div><div className="thumbs">{vehicle.gallery.map((src,i)=><button key={src} onClick={()=>setGallery(i)} className={gallery===i?'active':''}><img src={src} alt="thumb"/></button>)}</div></div>}
         {id==='video' && <div className="video"><img src={vehicle.video_thumbnail} alt="Featured vehicle video"/><div className="play"><CirclePlay size={54}/></div></div>}
         {id==='seller' && <div className="seller"><div className="avatar">AH</div><div className="seller-info"><h3>{vehicle.seller_name}<CheckCircle2 size={15}/></h3><p>{vehicle.seller_title}</p><p>{vehicle.seller_company}</p></div><div className="seller-actions"><button><Phone size={17}/>Call</button><button><MessageCircle size={17}/>WhatsApp</button><button><Mail size={17}/>Email</button></div></div>}
-        {id==='social' && <div className="socials"><a href={vehicle.website}><span>⌁</span></a><a href={vehicle.instagram}><Instagram size={20}/></a><a href={vehicle.facebook}><Facebook size={20}/></a><a href={vehicle.youtube}><Youtube size={20}/></a><a href={vehicle.linkedin}><Linkedin size={20}/></a></div>}
+        {id==='social' && <div className="socials"><a href={vehicle.website}><span>⌁</span></a><a href={vehicle.instagram}><Instagram size={20}/></a><a href={vehicle.facebook}><Facebook size={20}/></a><a href={vehicle.youtube}><CirclePlay size={20}/></a><a href={vehicle.linkedin}><Linkedin size={20}/></a></div>}
       </div>}
     </section>)}</div>
     <footer>Z CARD · Automotive</footer>
