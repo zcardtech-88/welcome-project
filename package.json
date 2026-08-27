@@ -1,1 +1,1 @@
-{"name":"z-card-automotive","version":"1.0.0","private":true,"scripts":{"dev":"next dev","build":"next build","start":"next start"},"dependencies":{"lucide-react":"1.34.0","next":"16.3.3","react":"19.2.8","react-dom":"19.2.8"}}
+{"name":"z-card-personal","version":"1.0.0","private":true,"scripts":{"build":"echo Static Z Card build ready"}}
