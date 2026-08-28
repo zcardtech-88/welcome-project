@@ -2,12 +2,16 @@
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#FAFAF8" />
   <meta name="description" content="Z Personal — focused editable digital identity card." />
   <title>Z Personal — Focused Smart Card</title>
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-PLACEHOLDER" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles.css" />
-  <script defer src="app-final.js"></script>
+  <link rel="stylesheet" href="mobile-v2.css" />
+  <script defer src="app-v2.js"></script>
 </head>
 <body>
   <header class="topbar">
@@ -15,21 +19,21 @@
     <div class="topbar-actions">
       <button class="icon-btn" id="langToggle" type="button">EN</button>
       <button class="icon-btn" id="themeToggle" type="button">☼</button>
-      <a class="btn btn-soft btn-small desktop-only" href="#download" data-i18n="save_changes_btn">حفظ التعديلات</a>
+      <a class="btn btn-soft btn-small desktop-only" href="#download">Z Personal</a>
     </div>
   </header>
 
   <main id="top" class="page wrap">
     <section class="intro">
-      <div class="eyebrow" data-i18n="eyebrow">Z PERSONAL</div>
+      <div class="eyebrow">Z PERSONAL</div>
       <h1 data-i18n="headline">بدّل بيانات الكارد ببياناتك</h1>
-      <p class="lead" data-i18n="lead">اضغط على أي عنصر داخل الكارد لتعديله، ثم احفظ التغييرات وشاهد بطاقتك تتحول إلى هويتك الخاصة.</p>
+      <p class="lead" data-i18n="lead">اضغط على أي خانة داخل الكارد، غيّر بياناتك ثم اضغط حفظ.</p>
       <div class="intro-badges">
         <span data-i18n="badge_free">مجاني تمامًا</span>
         <span data-i18n="badge_analytics">تحليلات مدمجة</span>
       </div>
-      <p class="sub" data-i18n="sub">صورة • اسم • وظيفة • هاتف • واتساب • شركة • نبذة • روابط • QR • مشاركة</p>
-      <div class="intro-note" data-i18n="intro_note">واجهة واحدة بسيطة. كارد واحد فقط. لا صفحات طويلة.</div>
+      <p class="sub" data-i18n="sub">الإنشاء مجاني تمامًا • التحليلات مدمجة • الكارد لك بالكامل</p>
+      <div class="intro-note" data-i18n="intro_note">اضغط على الصورة أو الاسم أو أي زر لتغيير بياناته.</div>
     </section>
 
     <section class="stage" id="cardStage">
@@ -65,28 +69,20 @@
           <button class="bio field edit-trigger" id="bioField" data-edit="short_bio" type="button"></button>
 
           <div class="quick-actions">
-            <button class="qa edit-trigger" data-edit="phone_number" type="button" id="callBtn"><span>✆</span><small data-i18n="call">اتصال</small></button>
-            <button class="qa edit-trigger" data-edit="whatsapp_number" type="button" id="waBtn"><span>◌</span><small data-i18n="whatsapp">واتساب</small></button>
-            <button class="qa edit-trigger" data-edit="email" type="button" id="emailBtn"><span>@</span><small data-i18n="email">إيميل</small></button>
-            <button class="qa" data-action="save_contact" type="button" id="saveContactBtn"><span>＋</span><small data-i18n="save_contact">حفظ جهة الاتصال</small></button>
+            <button class="qa edit-trigger" data-edit="phone_number" type="button" id="callBtn"><i class="fa-solid fa-phone"></i><small data-i18n="call">اتصال</small></button>
+            <button class="qa edit-trigger" data-edit="whatsapp_number" type="button" id="waBtn"><i class="fa-brands fa-whatsapp"></i><small data-i18n="whatsapp">واتساب</small></button>
+            <button class="qa edit-trigger" data-edit="email" type="button" id="emailBtn"><i class="fa-regular fa-envelope"></i><small data-i18n="email">إيميل</small></button>
+            <button class="qa" data-action="save_contact" type="button" id="saveContactBtn"><i class="fa-regular fa-address-card"></i><small data-i18n="save_contact">حفظ جهة الاتصال</small></button>
           </div>
 
           <div class="social-row" id="socialRow" aria-label="روابط التواصل"></div>
 
           <div class="card-foot">
-            <button class="foot-btn" data-action="qr" type="button" data-i18n="qr">QR Code</button>
-            <button class="foot-btn" data-share type="button" data-i18n="share">مشاركة</button>
+            <button class="foot-btn" data-action="qr" type="button" data-i18n="qr"><i class="fa-solid fa-qrcode"></i> QR Code</button>
+            <button class="foot-btn" data-share type="button" data-i18n="share"><i class="fa-solid fa-share-nodes"></i> مشاركة</button>
           </div>
         </div>
       </article>
-
-      <div class="micro-strip">
-        <span data-i18n="chip_identity">معلوماتك</span>
-        <span data-i18n="chip_links">روابطك</span>
-        <span data-i18n="chip_media">صورك</span>
-        <span data-i18n="chip_qr">QR Code</span>
-        <span data-i18n="chip_share">مشاركة سهلة</span>
-      </div>
     </section>
 
     <section class="download" id="download">
@@ -96,16 +92,16 @@
           <h2 data-i18n="download_headline">احفظ كاردك على تطبيق Z Card</h2>
           <p data-i18n="download_text">حمّل التطبيق وسجّل بنفس رقم الهاتف المستخدم داخل الكارد، وسيظهر كاردك داخل حسابك بعد التحقق.</p>
         </div>
-        <a class="btn btn-gold" href="https://play.google.com/store/apps/details?id=com.zahed.zcard" target="_blank" rel="noreferrer" data-i18n="download_btn">تحميل تطبيق Z Card</a>
+        <a class="btn btn-gold" href="#" data-i18n="download_btn">الانتقال لتحميل التطبيق</a>
       </div>
-      <p class="download-note" data-i18n="download_note">رقم الهاتف الذي تضيفه هنا هو نفسه الرقم الذي ستستخدمه عند تسجيل الدخول داخل التطبيق.</p>
+      <p class="download-note" data-i18n="download_note">رقم الهاتف الذي تضيفه للكارد هو نفسه الرقم الذي ستستخدمه عند إنشاء حسابك داخل التطبيق.</p>
     </section>
   </main>
 
   <div class="dock" id="dock">
     <div class="dock-inner">
-      <button type="button" id="dockCall" data-action="call" data-i18n="call">اتصال</button>
-      <button type="button" id="dockWa" data-action="whatsapp" data-i18n="whatsapp">واتساب</button>
+      <button type="button" id="dockCall" data-i18n="call">اتصال</button>
+      <button type="button" id="dockWa" data-i18n="whatsapp">واتساب</button>
       <button type="button" data-share data-i18n="share">مشاركة</button>
       <button type="button" data-action="qr" data-i18n="qr">QR Code</button>
     </div>
@@ -114,26 +110,22 @@
   <div class="modal" id="editorModal" aria-hidden="true">
     <div class="panel">
       <button class="close" type="button" data-close="editorModal">×</button>
-      <div class="eyebrow small" id="editorLabel"></div>
+      <div class="eyebrow small">Z PERSONAL</div>
       <h3 id="editorTitle"></h3>
       <p id="editorHelp"></p>
-
       <form id="editorForm">
         <div class="field" id="imageUploadGroup" hidden>
           <label data-i18n="upload_from_device">رفع من الجهاز</label>
           <input type="file" id="imageFile" accept="image/*" />
         </div>
-
         <div class="field" id="editorInputGroup">
           <label id="editorInputLabel" for="editorInput"></label>
           <input id="editorInput" type="text" data-i18n-placeholder="type_here" />
         </div>
-
         <div class="field" id="textareaGroup" hidden>
           <label id="editorTextLabel" for="editorTextArea"></label>
           <textarea id="editorTextArea" rows="4" data-i18n-placeholder="write_bio"></textarea>
         </div>
-
         <div class="actions">
           <button class="btn btn-gold" type="submit" data-i18n="save">حفظ</button>
           <button class="btn btn-soft" type="button" data-close="editorModal" data-i18n="cancel">إلغاء</button>
@@ -145,12 +137,12 @@
   <div class="modal" id="shareModal" aria-hidden="true">
     <div class="panel">
       <button class="close" type="button" data-close="shareModal">×</button>
-      <div class="eyebrow small" data-i18n="share">مشاركة</div>
-      <h3 data-i18n="share_headline">شارك البطاقة بسهولة</h3>
-      <p data-i18n="share_text">يمكنك نسخ الرابط أو استخدام المشاركة الطبيعية في الجهاز.</p>
+      <div class="eyebrow small">Z CARD</div>
+      <h3 data-i18n="shareTitle">مشاركة الكارد</h3>
+      <p data-i18n="shareText">شارك الكارد مباشرة أو انسخ رابطه.</p>
       <div class="actions">
-        <button class="btn btn-gold" type="button" id="nativeShareBtn" data-i18n="native_share">مشاركة</button>
-        <button class="btn btn-soft" type="button" id="copyLinkBtn" data-i18n="copy_link">نسخ الرابط</button>
+        <button class="btn btn-gold" type="button" id="nativeShareBtn" data-i18n="share">مشاركة</button>
+        <button class="btn btn-soft" type="button" id="copyLinkBtn">نسخ الرابط</button>
       </div>
     </div>
   </div>
@@ -158,9 +150,9 @@
   <div class="modal" id="qrModal" aria-hidden="true">
     <div class="panel">
       <button class="close" type="button" data-close="qrModal">×</button>
-      <div class="eyebrow small" data-i18n="qr">QR Code</div>
-      <h3 data-i18n="qr_headline">امسح لفتح البطاقة</h3>
-      <p data-i18n="qr_text">هذا رمز سريع لفتح البطاقة الحالية ومشاركتها.</p>
+      <div class="eyebrow small">Z CARD</div>
+      <h3 data-i18n="qr_headline">QR Code جاهز للمشاركة</h3>
+      <p data-i18n="qr_text">تم توليد الرمز من رابط الكارد الحالي.</p>
       <div class="qr-box"><img id="qrImage" alt="QR Code" /></div>
     </div>
   </div>
