@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang='ar' dir='rtl' data-theme='light'>
+<head>
+  <meta charset='utf-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  <meta name='theme-color' content='#FAFAF8' />
+  <meta name='description' content='Z Card Personal smart card template.' />
+  <title>Z Card Personal — Smart Card Template</title>
+  <link rel='preconnect' href='https://images.unsplash.com' />
+  <style>
+    :root{--bg:#FAFAF8;--bg2:#F4F2EC;--surface:#FFFFFF;--text:#151515;--muted:#6B6B6B;--gold:#D4AF37;--gold2:#E9D9A5;--line:rgba(21,21,21,.08);--shadow:0 22px 60px rgba(32,28,18,.10);--r:28px;--r2:34px}
+    html[data-theme='dark']{--bg:#171717;--bg2:#1D1D1D;--surface:#202020;--text:#FFFFFF;--muted:#B8B8B8;--gold:#D4AF37;--gold2:rgba(212,175,55,.18);--line:rgba(255,255,255,.08);--shadow:0 26px 64px rgba(0,0,0,.32)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:radial-gradient(circle at top,#fffdf7 0,var(--bg) 40%,var(--bg2) 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    html[dir='rtl'] body{text-align:right} a{color:inherit;text-decoration:none} button,input,textarea,select{font:inherit} img{max-width:100%;display:block}
+    .wrap{width:min(1180px,calc(100% - 24px));margin:auto}
+    .nav{position:sticky;top:10px;z-index:30;width:min(1160px,calc(100% - 24px));margin:12px auto 0;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:color-mix(in srgb,var(--surface) 88%,transparent);border:1px solid var(--line);border-radius:999px;backdrop-filter:blur(18px);box-shadow:0 10px 34px rgba(0,0,0,.05)}
+    .brand{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:800;letter-spacing:.12em}.brand-z{width:28px;height:28px;border-radius:10px;display:grid;place-items:center;background:var(--gold);color:#fff}
+    .nav-actions{display:flex;align-items:center;gap:8px}.icon-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer;display:grid;place-items:center}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 18px;border-radius:16px;border:1px solid transparent;font-weight:750;font-size:13px;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease}.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(0)}.btn-gold{background:var(--gold);color:#fff;box-shadow:0 12px 24px rgba(212,175,55,.22)}.btn-ghost{background:var(--surface);border-color:var(--line);color:var(--text)}.btn-soft{background:var(--bg2);border-color:var(--line);color:var(--text)}
+    .hero{display:grid;grid-template-columns:1.02fr .98fr;gap:26px;align-items:start;padding:22px 0 18px}.eyebrow{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--gold);text-transform:uppercase}.hero h1{margin:14px 0 12px;font-size:clamp(42px,6.2vw,76px);line-height:.95;letter-spacing:-.055em}.lead{max-width:560px;margin:0 0 10px;font-size:19px;line-height:1.55}.sub{max-width:560px;margin:0;color:var(--muted);font-size:14px;line-height:1.75}.hero-ctas{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 10px}.reassure,.tiny{font-size:11px;color:var(--muted)}
+    .stage{position:relative}.sticky-head{position:sticky;top:64px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:18px;background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(16px);box-shadow:0 12px 28px rgba(0,0,0,.06);transform:translateY(-8px);opacity:0;pointer-events:none;transition:.28s ease;margin-bottom:10px}.sticky-head.show{transform:translateY(0);opacity:1;pointer-events:auto}.sticky-head .mini{display:flex;align-items:center;gap:10px}.mini img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}.mini strong{display:block;font-size:13px;line-height:1.1}.mini small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+    .zcard{position:relative;border:1px solid var(--line);border-radius:36px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow);transform:translateY(0);animation:floaty 8s ease-in-out infinite}.cover{height:176px;background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.2)),url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85') center/cover no-repeat}.cover.alt{background-image:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.2)),url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=85')}
+    .brand-mark{position:absolute;left:16px;top:16px;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.88);border:1px solid rgba(255,255,255,.5);backdrop-filter:blur(10px);font-size:10px;font-weight:800;letter-spacing:.14em}.avatar{position:absolute;right:18px;top:126px;width:92px;height:92px;border-radius:28px;border:4px solid var(--surface);overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,.12);background:#ddd}.avatar button{all:unset;cursor:pointer}.avatar img{width:100%;height:100%;object-fit:cover}
+    .card-body{padding:18px 18px 16px}.name-line{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}.verified{padding:7px 10px;border-radius:999px;background:var(--gold2);color:#7C6213;font-size:10px;font-weight:800}.name{margin:18px 0 4px;font-size:26px;letter-spacing:-.04em;line-height:1.05;cursor:pointer}.title{margin:0;color:var(--muted);font-size:14px;cursor:pointer}.company{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;color:var(--gold);cursor:pointer}.location,.bio{margin:10px 0 0;font-size:13px;line-height:1.7;color:var(--muted)}.bio{cursor:pointer;max-width:64ch}
+    .quick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0 12px}.quick a,.quick button{min-height:42px;border-radius:14px;border:1px solid var(--line);background:var(--bg2);color:var(--text);cursor:pointer;font-size:11px;font-weight:800;display:grid;place-items:center;padding:0 8px}.quick a:nth-child(1){background:var(--text);color:var(--surface)}.quick a:nth-child(2){background:rgba(29,185,84,.08);color:#1a9b48}.social{display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 14px}.social a{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--bg2);border:1px solid var(--line);font-size:10px;font-weight:800}.footer-mini{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:14px;border-top:1px solid var(--line)}.footer-mini button{border:0;background:none;color:var(--muted);font-size:11px;font-weight:800;cursor:pointer;padding:0}
+    .rail{display:flex;gap:8px;overflow:auto;scroll-snap-type:x mandatory;padding:4px 2px 10px}.rail::-webkit-scrollbar{height:8px}.rail::-webkit-scrollbar-thumb{background:color-mix(in srgb,var(--muted) 28%,transparent);border-radius:99px}.rail .thumb{min-width:92px;height:70px;border-radius:18px;overflow:hidden;scroll-snap-align:start;border:1px solid var(--line);background:var(--bg2)}.rail .thumb img{width:100%;height:100%;object-fit:cover}.video{display:flex;align-items:center;gap:12px;padding:12px;border-radius:22px;background:var(--bg2);border:1px solid var(--line)}.video .play{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:#fff;box-shadow:0 12px 20px rgba(212,175,55,.22);flex:0 0 auto}.video img{width:88px;height:62px;border-radius:16px;object-fit:cover;border:1px solid var(--line)}.video strong{display:block;font-size:13px}.video small{display:block;margin-top:2px;color:var(--muted);font-size:11px}
+    .builder-note{margin:12px 0 0;font-size:12px;color:var(--muted)}.strip{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 18px}.chip{padding:8px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:11px;font-weight:700;color:var(--muted)}.card-row{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px}
+    details{border-top:1px solid var(--line);padding:6px 0}summary{cursor:pointer;list-style:none;padding:16px 0;font-size:15px;font-weight:750}summary::-webkit-details-marker{display:none}.summary{display:flex;align-items:center;justify-content:space-between;gap:10px}.preview{color:var(--muted);font-size:12px;line-height:1.65;padding:0 0 16px}.section{padding:10px 0 0}.section h2{font-size:18px;line-height:1.2;margin:0 0 8px}.section p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}.compact-list{display:flex;gap:10px;overflow:auto;scroll-snap-type:x mandatory;padding:4px 0 10px}.compact-card{min-width:250px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:14px 14px 12px;box-shadow:0 10px 24px rgba(0,0,0,.04)}.compact-card .meta{font-size:10px;letter-spacing:.14em;color:var(--gold);font-weight:800;margin-bottom:6px}.compact-card h3{margin:0 0 6px;font-size:15px}.compact-card small{color:var(--muted);font-size:12px;line-height:1.6}
+    .timeline{display:grid;gap:10px}.t-item{display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:12px}.year{width:52px;height:52px;border-radius:16px;background:var(--gold2);display:grid;place-items:center;font-weight:800;color:#715A10}.t-item strong{display:block;font-size:14px;margin-bottom:4px}.t-item small{color:var(--muted);font-size:12px;line-height:1.6}
+    .gallery-rail{display:flex;gap:10px;overflow:auto;scroll-snap-type:x mandatory;padding:4px 0 10px}.gallery-rail .g{min-width:220px;height:150px;border-radius:22px;overflow:hidden;scroll-snap-align:start;border:1px solid var(--line)}.gallery-rail img{width:100%;height:100%;object-fit:cover}
+    .presence{display:flex;gap:8px;flex-wrap:wrap}.presence a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:1px solid var(--line);font-size:11px;font-weight:800}
+    .dock{position:fixed;left:12px;right:12px;bottom:10px;z-index:35;display:flex;justify-content:center;pointer-events:none;transition:transform .24s ease,opacity .24s ease}.dock.hide{transform:translateY(16px);opacity:.55}.dock-inner{pointer-events:auto;display:flex;gap:8px;align-items:center;padding:10px 12px;border-radius:999px;background:color-mix(in srgb,var(--surface) 88%,transparent);border:1px solid var(--line);box-shadow:0 16px 34px rgba(0,0,0,.08);backdrop-filter:blur(16px)}.dock-inner a,.dock-inner button{border:0;background:none;color:var(--text);font-weight:800;font-size:11px;cursor:pointer;min-height:30px;padding:0 8px}.dock-inner a:nth-child(1){color:var(--gold)}.dock-inner a:nth-child(2){color:#1a9b48}
+    .lang-badge{font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--muted)}.modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(15,15,15,.36);backdrop-filter:blur(10px);z-index:60;padding:16px}.modal.show{display:grid}.panel{width:min(560px,100%);background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:18px;box-shadow:var(--shadow);position:relative}.panel h3{margin:6px 0 10px;font-size:22px;letter-spacing:-.04em}.panel p{margin:0 0 12px;color:var(--muted);font-size:13px;line-height:1.7}.panel .close{position:absolute;left:14px;top:12px;width:34px;height:34px;border-radius:50%;border:0;background:var(--bg2);color:var(--text);cursor:pointer}.field{display:grid;gap:6px;margin:10px 0}.field label{font-size:11px;font-weight:800;color:var(--muted)}.field input,.field textarea{width:100%;padding:13px 14px;border-radius:14px;border:1px solid var(--line);background:var(--bg2);color:var(--text);outline:none}.field textarea{min-height:92px;resize:vertical}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.success-card{display:grid;gap:10px;padding:14px;border-radius:22px;border:1px solid var(--line);background:var(--bg2)}.success-card .url{word-break:break-all;color:var(--gold);font-size:12px}.qrbox{display:grid;place-items:center;gap:10px;padding:12px;border-radius:22px;background:var(--bg2);border:1px solid var(--line)}.qrbox img{width:180px;height:180px;border-radius:18px;background:#fff;padding:8px}.toast{position:fixed;left:50%;bottom:78px;transform:translateX(-50%) translateY(16px);opacity:0;background:var(--text);color:var(--surface);padding:10px 14px;border-radius:999px;font-size:11px;z-index:70;transition:.22s}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    .benefits{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 10px}.benefits span{padding:8px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:11px;font-weight:700;color:var(--muted)}
+    .create-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.download{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.download a{display:inline-flex;align-items:center;gap:8px;padding:12px 15px;border-radius:14px;border:1px solid var(--line);background:var(--surface);font-size:12px;font-weight:800}.download small{color:var(--muted);font-weight:700}
+    .mobile-edit{display:none}
+    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    @media (max-width:980px){.hero{grid-template-columns:1fr;gap:16px}.sticky-head{top:58px}.mobile-edit{display:block}.desktop-only{display:none}}
+    @media (max-width:620px){.wrap{width:min(100% - 16px,1180px)}.nav{width:calc(100% - 16px);padding:10px}.nav .btn{display:none}.hero{padding-top:16px}.hero h1{font-size:40px}.lead{font-size:16px}.cover{height:156px}.avatar{top:114px;width:82px;height:82px}.card-body{padding:16px}.name{font-size:22px}.quick{grid-template-columns:repeat(2,1fr)}.dock-inner{gap:4px;padding:8px 10px}.dock-inner a,.dock-inner button{padding:0 6px}.panel{padding:16px}.gallery-rail .g,.compact-card{min-width:82vw}.t-item{grid-template-columns:44px 1fr}.year{width:44px;height:44px;border-radius:14px}.success-card .url{font-size:11px}}
+  </style>
+</head>
+<body>
+  <header class='nav' id='nav'>
+    <a class='brand' href='#top' aria-label='Z Card'><span class='brand-z'>Z</span><span>Z CARD</span></a>
+    <div class='nav-actions'>
+      <button class='icon-btn' id='langToggle' type='button' aria-label='Toggle language'>EN</button>
+      <button class='icon-btn' id='themeToggle' type='button' aria-label='Toggle theme'>☼</button>
+      <a class='btn btn-gold' href='#builder' id='navCreate'>أنشئ بطاقتي</a>
+    </div>
+  </header>
+
+  <main id='top' class='wrap'>
+    <section class='hero'>
+      <div>
+        <span class='eyebrow'>Z PERSONAL</span>
+        <h1 id='heroTitle'>اصنع كاردك الشخصي في ثواني</h1>
+        <p class='lead' id='heroLead'>بدّل بيانات الكارد الجاهز ببياناتك، وشاهد هويتك الرقمية جاهزة للمشاركة.</p>
+        <p class='sub' id='heroSub'>البطاقة تحوّل صورة، اسم، وظيفة، هاتف، واتساب، شركة، نبذة، صور، فيديو وروابطك إلى تجربة أنيقة واحدة.</p>
+        <div class='hero-ctas'>
+          <a class='btn btn-gold' href='#builder' id='heroCta'>ابدأ الآن مجانًا</a>
+          <button class='btn btn-ghost' type='button' data-action='scroll-example' id='heroExample'>عرض مثال</button>
+        </div>
+        <p class='reassure' id='heroReassure'>مجاني • بدون بطاقة بنكية</p>
+        <div class='benefits' aria-label='Benefits'>
+          <span>هويتك</span><span>روابطك</span><span>صورك</span><span>فيديوك</span><span>QR Code</span><span>مشاركة سهلة</span>
+        </div>
+      </div>
+
+      <div class='stage'>
+        <div class='sticky-head' id='stickyHead'>
+          <div class='mini'>
+            <img id='stickyPhoto' src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=85' alt='profile' />
+            <div>
+              <strong id='stickyName'>Zahd Ashour</strong>
+              <small id='stickyTitle'>Entrepreneur & Founder</small>
+            </div>
+          </div>
+          <div style='display:flex;gap:8px;align-items:center'>
+            <button class='icon-btn' id='stickyShare' type='button' aria-label='Share'>↗</button>
+            <button class='icon-btn' id='stickyQr' type='button' aria-label='QR'>▦</button>
+          </div>
+        </div>
+
+        <article class='zcard' id='card'>
+          <div class='cover' id='cover'></div>
+          <span class='brand-mark'>Z CARD</span>
+          <div class='avatar'>
+            <button type='button' data-edit='photo' aria-label='Edit photo'><img id='photo' src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=85' alt='profile photo' /></button>
+          </div>
+          <div class='card-body'>
+            <div class='name-line'><span class='verified' id='verified'>✓ Verified</span><span class='lang-badge' id='langBadge'>EN</span></div>
+            <h2 class='name' data-edit='name' id='name'>Zahd Ashour</h2>
+            <p class='title' data-edit='title' id='title'>Entrepreneur & Founder</p>
+            <span class='company' data-edit='company' id='company'>Z Card</span>
+            <p class='location' id='location'>Cairo, Egypt</p>
+            <p class='bio' data-edit='bio' id='bio'>Building premium digital experiences powered by AI.</p>
+
+            <div class='quick'>
+              <a id='callBtn' href='tel:+201012345678'>Call</a>
+              <a id='waBtn' href='https://wa.me/201012345678' target='_blank' rel='noreferrer'>WhatsApp</a>
+              <a id='emailBtn' href='mailto:hello@zcard.tech'>Email</a>
+              <button type='button' data-action='save-contact'>Save Contact</button>
+            </div>
+
+            <div class='social' id='socialRow'></div>
+
+            <div class='video' id='videoBox' style='margin:6px 0 10px;'>
+              <img id='videoThumb' src='https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80' alt='video thumbnail' />
+              <div class='play'>▶</div>
+              <div>
+                <strong id='videoTitle'>Featured Video</strong>
+                <small id='videoSub'>A premium intro clip</small>
+              </div>
+            </div>
+
+            <div class='footer-mini'>
+              <button type='button' data-action='share'>Share</button>
+              <button type='button' data-action='qr'>QR Code</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class='section' id='builder'>
+      <h2 id='sectionTitle'>بدّل بيانات الكارد ببياناتك</h2>
+      <p id='sectionSub'>صورة • اسم • وظيفة • هاتف • واتساب • شركة • نبذة • صور • فيديو</p>
+      <div class='create-cta'>
+        <button class='btn btn-gold' type='button' id='createBtn'>أنشئ كاردك الآن</button>
+        <button class='btn btn-soft' type='button' data-action='open-qr'>QR Code</button>
+      </div>
+      <p class='builder-note' id='builderNote'>المحرر المباشر مفتوح عند الضغط على أي عنصر من الكارد.</p>
+      <div class='strip'><span class='chip'>Direct edit</span><span class='chip'>Instant preview</span><span class='chip'>Phone-keyed claim flow</span></div>
+
+      <details open>
+        <summary class='summary'><span>About</span><span class='tiny' id='aboutPreview'>Experience • Languages • Short about</span></summary>
+        <div class='preview' id='aboutText'>Zahd is building premium digital experiences powered by AI. 8+ years. Arabic • English.</div>
+      </details>
+      <details>
+        <summary class='summary'><span>Services</span><span class='tiny' id='servicesPreview'>Brand Identity • UI Design • Digital Strategy</span></summary>
+        <div class='compact-list' id='servicesList'></div>
+      </details>
+      <details>
+        <summary class='summary'><span>Achievements</span><span class='tiny' id='achievementsPreview'>2024 • Featured Project • Certified Expert</span></summary>
+        <div class='timeline' id='achievementsList'></div>
+      </details>
+      <details>
+        <summary class='summary'><span>Gallery</span><span class='tiny' id='galleryPreview'>Swipeable images</span></summary>
+        <div class='gallery-rail' id='galleryRail'></div>
+      </details>
+      <details>
+        <summary class='summary'><span>Featured Video</span><span class='tiny' id='videoPreview'>Thumbnail + Play</span></summary>
+        <div class='video' style='margin-top:10px;'><img id='videoThumb2' src='https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80' alt='video thumbnail' /><div class='play'>▶</div><div><strong id='videoTitle2'>Featured Video</strong><small id='videoSub2'>Luxury intro clip</small></div></div>
+      </details>
+      <details>
+        <summary class='summary'><span>Digital Presence</span><span class='tiny' id='socialPreview'>LinkedIn • Instagram • YouTube</span></summary>
+        <div class='presence' id='presenceList'></div>
+      </details>
+    </section>
+
+    <section class='section' id='publishState' style='margin:8px 0 120px;'>
+      <h2 id='publishTitle'>كاردك جاهز 🎉</h2>
+      <p id='publishSub'>حمّل التطبيق وسجّل بنفس رقم الهاتف المستخدم في الكارد، وسيظهر كاردك داخل حسابك.</p>
+      <div class='success-card'>
+        <strong id='publicLabel'>الرابط العام</strong>
+        <div class='url' id='publicUrl'>zcard.tech/card/username</div>
+        <div class='actions'>
+          <button class='btn btn-gold' type='button' data-action='copy'>نسخ الرابط</button>
+          <button class='btn btn-soft' type='button' data-action='share'>مشاركة</button>
+          <button class='btn btn-soft' type='button' data-action='qr'>QR Code</button>
+        </div>
+      </div>
+      <div class='download'>
+        <a href='https://play.google.com/store/apps/details?id=com.zahed.zcard' target='_blank' rel='noreferrer'>تحميل تطبيق Z Card <small>Google Play</small></a>
+      </div>
+    </section>
+
+    <footer style='padding:8px 0 110px;color:var(--muted);font-size:12px'>Z CARD • Personal Digital Identity • Privacy • Terms • Contact</footer>
+  </main>
+
+  <div class='dock' id='dock'>
+    <div class='dock-inner'>
+      <a href='tel:+201012345678' id='dockCall'>Call</a>
+      <a href='https://wa.me/201012345678' target='_blank' rel='noreferrer' id='dockWa'>WhatsApp</a>
+      <button type='button' data-action='share'>Share</button>
+      <button type='button' data-action='qr'>QR Code</button>
+    </div>
+  </div>
+
+  <div class='modal' id='editModal' aria-hidden='true'>
+    <div class='panel'>
+      <button class='close' type='button' data-action='close-modal'>×</button>
+      <h3 id='editTitle'>Edit</h3>
+      <p id='editHint'>Update the selected field and see the card change instantly.</p>
+      <div id='editSlot'></div>
+      <div class='actions'>
+        <button class='btn btn-gold' type='button' data-action='save-edit'>Save</button>
+        <button class='btn btn-soft' type='button' data-action='cancel-edit'>Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class='modal' id='qrModal' aria-hidden='true'>
+    <div class='panel'>
+      <button class='close' type='button' data-action='close-qr'>×</button>
+      <h3>QR Code</h3>
+      <p>Scan to open the card.</p>
+      <div class='qrbox'><img id='qrImg' alt='QR Code' src='' /><small class='tiny' id='qrLabel'>Scan to open the card.</small></div>
+    </div>
+  </div>
+
+  <div class='modal' id='successModal' aria-hidden='true'>
+    <div class='panel'>
+      <button class='close' type='button' data-action='close-success'>×</button>
+      <h3 id='successTitle'>Your Z Card is ready.</h3>
+      <p id='successText'>Save your card in the Z Card app and manage it anytime.</p>
+      <div class='success-card' style='margin-top:10px'>
+        <strong id='successName'>Zahd Ashour</strong>
+        <div class='url' id='successUrl'></div>
+      </div>
+      <div class='actions'>
+        <button class='btn btn-gold' type='button' data-action='share'>Share Card</button>
+        <button class='btn btn-soft' type='button' data-action='copy'>Copy Link</button>
+        <a class='btn btn-soft' href='https://play.google.com/store/apps/details?id=com.zahed.zcard' target='_blank' rel='noreferrer'>Download App</a>
+      </div>
+    </div>
+  </div>
+
+  <div class='toast' id='toast'></div>
+
+  <script>
+    const state = {
+      lang: 'ar',
+      theme: localStorage.getItem('z-theme') || 'light',
+      cardTheme: 'default',
+      editedField: null,
+      card: {
+        card_id: null,
+        phone_number: '+20 10 1234 5678',
+        name: 'Zahd Ashour',
+        job_title: 'Entrepreneur & Founder',
+        company: 'Z Card',
+        location: 'Cairo, Egypt',
+        bio: 'Building premium digital experiences powered by AI.',
+        photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=85',
+        cover_image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=85',
+        whatsapp: '201012345678',
+        phone: '+20 10 1234 5678',
+        email: 'hello@zcard.tech',
+        social_links: {
+          linkedin: 'https://linkedin.com/in/zahdashour',
+          instagram: 'https://instagram.com/zcard',
+          facebook: '',
+          x: '',
+          youtube: 'https://youtube.com/@zcard'
+        },
+        gallery: [
+          'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=85',
+          'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=85',
+          'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85',
+          'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=85'
+        ],
+        services: [
+          {icon:'✦', title:'Brand Strategy', desc:'Premium identity systems and positioning.'},
+          {icon:'◌', title:'UI Design', desc:'Elegant product interfaces with clear hierarchy.'},
+          {icon:'⌁', title:'AI Solutions', desc:'Smart digital experiences powered by AI.'},
+          {icon:'↗', title:'Growth', desc:'Product-led sharing and conversion flows.'}
+        ],
+        achievements: [
+          {year:'2024', title:'Behance Featured', desc:'Highlighted for a premium visual identity project.'},
+          {year:'2023', title:'Adobe Certified', desc:'Recognized for creative tool mastery.'},
+          {year:'2022', title:'Launch Partner', desc:'Helped launch multiple digital products.'}
+        ],
+        video: {
+          title: 'Z Card Intro',
+          subtitle: 'A quick premium introduction clip',
+          thumb: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80'
+        },
+        status: 'draft',
+        created_at: null,
+        updated_at: null
+      }
+    };
+
+    const copy = {
+      ar: {
+        toggle:'EN', nav:'أنشئ بطاقتي', heroTitle:'اصنع كاردك الشخصي في ثواني', heroLead:'بدّل بيانات الكارد الجاهز ببياناتك، وشاهد هويتك الرقمية جاهزة للمشاركة.', heroSub:'البطاقة تحوّل صورة، اسم، وظيفة، هاتف، واتساب، شركة، نبذة، صور، فيديو وروابطك إلى تجربة أنيقة واحدة.', heroCta:'ابدأ الآن مجانًا', heroExample:'عرض مثال', reassure:'مجاني • بدون بطاقة بنكية', sectionTitle:'بدّل بيانات الكارد ببياناتك', sectionSub:'صورة • اسم • وظيفة • هاتف • واتساب • شركة • نبذة • صور • فيديو', builderNote:'المحرر المباشر يفتح عند الضغط على أي عنصر من الكارد.', publishTitle:'كاردك جاهز 🎉', publishText:'حمّل التطبيق وسجّل بنفس رقم الهاتف المستخدم في الكارد، وسيظهر كاردك داخل حسابك.', publicLabel:'الرابط العام', successTitle:'كاردك جاهز 🎉', successText:'احفظ كاردك داخل تطبيق Z Card وادِرْه في أي وقت.', editTitle:'تحرير العنصر', editHint:'عدّل الحقل المحدد وسيتم تحديث الكارد فورًا.', save:'حفظ', cancel:'إلغاء', copy:'نسخ الرابط', share:'مشاركة', qr:'QR Code', create:'أنشئ كاردك الآن', saveContact:'حفظ جهة الاتصال', call:'اتصال', whatsapp:'واتساب', email:'إيميل', about:'About', services:'Services', achievements:'Achievements', gallery:'Gallery', video:'Featured Video', presence:'Digital Presence', qrlabel:'امسح لفتح الكارد.', download:'تحميل تطبيق Z Card', appStore:'Google Play', cardId:'card_id', urlLabel:'zcard.tech/card/username', langBadge:'AR', verified:'✓ موثق', sticky:'يظهر الكارد داخل التطبيق عند تسجيل الدخول بنفس رقم الهاتف.'
+      },
+      en: {
+        toggle:'AR', nav:'Create My Card', heroTitle:'Create your personal card in seconds', heroLead:'Replace the demo card with your own details and watch your digital identity become share-ready.', heroSub:'The card turns photo, name, job title, phone, WhatsApp, company, bio, photos, video and links into one elegant experience.', heroCta:'Start free now', heroExample:'View example', reassure:'Free • No credit card', sectionTitle:'Replace the card details with yours', sectionSub:'Photo • Name • Job • Phone • WhatsApp • Company • Bio • Photos • Video', builderNote:'The direct editor opens when you tap any card element.', publishTitle:'Your card is ready 🎉', publishText:'Download the app and sign in with the same phone number to see your card inside your account.', publicLabel:'Public URL', successTitle:'Your Z Card is ready.', successText:'Save your card in the Z Card app and manage it anytime.', editTitle:'Edit field', editHint:'Update the selected field and see the card update instantly.', save:'Save', cancel:'Cancel', copy:'Copy link', share:'Share', qr:'QR Code', create:'Create your card now', saveContact:'Save Contact', call:'Call', whatsapp:'WhatsApp', email:'Email', about:'About', services:'Services', achievements:'Achievements', gallery:'Gallery', video:'Featured Video', presence:'Digital Presence', qrlabel:'Scan to open the card.', download:'Download Z Card App', appStore:'Google Play', cardId:'card_id', urlLabel:'zcard.tech/card/username', langBadge:'EN', verified:'✓ Verified', sticky:'Your card appears in the app when you sign in with the same phone number.'
+      }
+    };
+
+    const $ = (s, r=document)=>r.querySelector(s);
+    const $$ = (s, r=document)=>[...r.querySelectorAll(s)];
+    const els = {
+      navCreate: $('#navCreate'), heroTitle: $('#heroTitle'), heroLead: $('#heroLead'), heroSub: $('#heroSub'), heroCta: $('#heroCta'), heroExample: $('#heroExample'), heroReassure: $('#heroReassure'), sectionTitle: $('#sectionTitle'), sectionSub: $('#sectionSub'), builderNote: $('#builderNote'), publishTitle: $('#publishTitle'), publishSub: $('#publishSub'), publicLabel: $('#publicLabel'), successTitle: $('#successTitle'), successText: $('#successText'), editTitle: $('#editTitle'), editHint: $('#editHint'), aboutPreview: $('#aboutPreview'), servicesPreview: $('#servicesPreview'), achievementsPreview: $('#achievementsPreview'), galleryPreview: $('#galleryPreview'), videoPreview: $('#videoPreview'), socialPreview: $('#socialPreview'), qrLabel: $('#qrLabel'), downloadLink: null, langBadge: $('#langBadge'), verified: $('#verified'), stickyHead: $('#stickyHead'), stickyName: $('#stickyName'), stickyTitle: $('#stickyTitle'), stickyPhoto: $('#stickyPhoto'), card: $('#card'), cover: $('#cover'), photo: $('#photo'), name: $('#name'), title: $('#title'), company: $('#company'), location: $('#location'), bio: $('#bio'), callBtn: $('#callBtn'), waBtn: $('#waBtn'), emailBtn: $('#emailBtn'), socialRow: $('#socialRow'), videoThumb: $('#videoThumb'), videoThumb2: $('#videoThumb2'), videoTitle: $('#videoTitle'), videoTitle2: $('#videoTitle2'), videoSub: $('#videoSub'), videoSub2: $('#videoSub2'), servicesList: $('#servicesList'), achievementsList: $('#achievementsList'), galleryRail: $('#galleryRail'), presenceList: $('#presenceList'), aboutText: $('#aboutText'), publicUrl: $('#publicUrl'), successUrl: $('#successUrl'), successName: $('#successName'), qrImg: $('#qrImg'), dock: $('#dock'), toast: $('#toast'), editModal: $('#editModal'), qrModal: $('#qrModal'), successModal: $('#successModal'), editSlot: $('#editSlot')
+    };
+
+    function publicUrl(){ return `${location.origin}${location.pathname}?card=${state.card.card_id || 'demo'}`; }
+    function qrUrl(){ return `https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=0&data=${encodeURIComponent(publicUrl())}`; }
+    function toast(msg){ els.toast.textContent = msg; els.toast.classList.add('show'); clearTimeout(window.__t); window.__t=setTimeout(()=>els.toast.classList.remove('show'), 2200); }
+    function save(){ state.card.updated_at = new Date().toISOString(); localStorage.setItem('z-personal-card', JSON.stringify(state.card)); }
+    function load(){ try{ const raw = localStorage.getItem('z-personal-card'); if(raw){ const saved = JSON.parse(raw); state.card = {...state.card, ...saved, social_links:{...state.card.social_links, ...(saved.social_links||{})}}; } }catch(e){} }
+    function setTheme(theme){ state.theme = theme; document.documentElement.dataset.theme = theme; localStorage.setItem('z-theme', theme); $('#themeToggle').textContent = theme === 'dark' ? '☾' : '☼'; }
+    function setLang(lang){ state.lang = lang; document.documentElement.lang = lang; document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'; $('#langToggle').textContent = copy[lang].toggle; els.navCreate.textContent = copy[lang].nav; els.heroTitle.textContent = copy[lang].heroTitle; els.heroLead.textContent = copy[lang].heroLead; els.heroSub.textContent = copy[lang].heroSub; els.heroCta.textContent = copy[lang].heroCta; els.heroExample.textContent = copy[lang].heroExample; els.heroReassure.textContent = copy[lang].reassure; els.sectionTitle.textContent = copy[lang].sectionTitle; els.sectionSub.textContent = copy[lang].sectionSub; els.builderNote.textContent = copy[lang].builderNote; els.publishTitle.textContent = copy[lang].publishTitle; els.publishSub.textContent = copy[lang].publishText; els.publicLabel.textContent = copy[lang].publicLabel; els.successTitle.textContent = copy[lang].successTitle; els.successText.textContent = copy[lang].successText; els.editTitle.textContent = copy[lang].editTitle; els.editHint.textContent = copy[lang].editHint; els.aboutPreview.textContent = `${state.card.services[0].title} • ${state.card.achievements[0].title} • ${state.card.bio.slice(0,28)}...`; els.servicesPreview.textContent = state.card.services.slice(0,3).map(i=>i.title).join(' • '); els.achievementsPreview.textContent = state.card.achievements.slice(0,3).map(i=>i.year).join(' • '); els.galleryPreview.textContent = 'Swipeable images'; els.videoPreview.textContent = 'Thumbnail + Play'; els.socialPreview.textContent = 'LinkedIn • Instagram • YouTube'; els.qrLabel.textContent = copy[lang].qrlabel; $('#createBtn').textContent = copy[lang].create; $('#dockCall').textContent = copy[lang].call; $('#dockWa').textContent = copy[lang].whatsapp; $('#navCreate').textContent = copy[lang].nav; $('#saveContactBtn') && ($('#saveContactBtn').textContent = copy[lang].saveContact); $('#langBadge').textContent = copy[lang].langBadge; $('#verified').textContent = copy[lang].verified; }
+
+    function render(){
+      $('#stickyName').textContent = state.card.name; $('#stickyTitle').textContent = state.card.job_title; $('#stickyPhoto').src = state.card.photo;
+      els.cover.className = 'cover';
+      if(state.card.cover_image && state.card.cover_image.includes('photo-1521737604893')) els.cover.classList.add('alt');
+      els.photo.src = state.card.photo; els.name.textContent = state.card.name; els.title.textContent = state.card.job_title; els.company.textContent = state.card.company; els.location.textContent = state.card.location; els.bio.textContent = state.card.bio; els.callBtn.href = `tel:${(state.card.phone || state.card.phone_number || '').replace(/\s+/g,'')}`; els.waBtn.href = `https://wa.me/${(state.card.whatsapp || '').replace(/\D/g,'')}`; els.emailBtn.href = `mailto:${state.card.email}`;
+      els.publicUrl.textContent = publicUrl(); els.successUrl.textContent = publicUrl(); els.successName.textContent = state.card.name; els.qrImg.src = qrUrl();
+      els.aboutText.textContent = `${state.card.bio} 8+ years. Arabic • English.`;
+      els.socialRow.innerHTML = '';
+      const socials = [ ['in', state.card.social_links.linkedin], ['ig', state.card.social_links.instagram], ['x', state.card.social_links.x], ['fb', state.card.social_links.facebook], ['yt', state.card.social_links.youtube] ].filter(([,u])=>u);
+      socials.forEach(([label, url])=>{ const a=document.createElement('a'); a.href=url; a.target='_blank'; a.rel='noreferrer'; a.textContent=label; a.setAttribute('aria-label',label); els.socialRow.appendChild(a); });
+      els.servicesList.innerHTML = '';
+      state.card.services.slice(0,3).forEach(s=>{ const c=document.createElement('article'); c.className='compact-card'; c.innerHTML = `<div class='meta'>${s.icon}</div><h3>${s.title}</h3><small>${s.desc}</small>`; els.servicesList.appendChild(c); });
+      if(state.card.services.length > 3){ const more=document.createElement('article'); more.className='compact-card'; more.innerHTML = `<div class='meta'>+</div><h3>View All</h3><small>${state.card.services.length - 3} more services</small>`; els.servicesList.appendChild(more); }
+      els.achievementsList.innerHTML = ''; state.card.achievements.forEach(a=>{ const el=document.createElement('div'); el.className='t-item'; el.innerHTML = `<div class='year'>${a.year}</div><div><strong>${a.title}</strong><small>${a.desc}</small></div>`; els.achievementsList.appendChild(el); });
+      els.galleryRail.innerHTML = ''; state.card.gallery.forEach(u=>{ const g=document.createElement('div'); g.className='g'; g.innerHTML = `<img loading='lazy' src='${u}' alt='gallery image' />`; els.galleryRail.appendChild(g); });
+      els.videoThumb.src = state.card.video.thumb; els.videoThumb2.src = state.card.video.thumb; els.videoTitle.textContent = state.card.video.title; els.videoTitle2.textContent = state.card.video.title; els.videoSub.textContent = state.card.video.subtitle; els.videoSub2.textContent = state.card.video.subtitle;
+      const presence = [ ['LinkedIn', state.card.social_links.linkedin], ['Instagram', state.card.social_links.instagram], ['Facebook', state.card.social_links.facebook], ['X', state.card.social_links.x], ['YouTube', state.card.social_links.youtube] ].filter(([,u])=>u);
+      els.presenceList.innerHTML = ''; presence.forEach(([name,url])=>{ const a=document.createElement('a'); a.href=url; a.target='_blank'; a.rel='noreferrer'; a.textContent=name[0]; a.title=name; a.setAttribute('aria-label', name); els.presenceList.appendChild(a); });
+      if(state.card.status === 'published'){ $('#publishTitle').textContent = copy[state.lang].publishTitle; $('#publishSub').textContent = copy[state.lang].publishText; }
+      if(state.card.phone_number){ els.publicUrl.textContent = publicUrl(); }
+      $('#langBadge').textContent = copy[state.lang].langBadge;
+    }
+
+    function openModal(el){ el.classList.add('show'); el.setAttribute('aria-hidden','false'); }
+    function closeModal(el){ el.classList.remove('show'); el.setAttribute('aria-hidden','true'); }
+
+    function openEditor(field){
+      state.editedField = field;
+      const slot = els.editSlot;
+      const t = copy[state.lang];
+      const card = state.card;
+      let html = '';
+      if(field === 'photo') html = `<div class='field'><label>Upload</label><input id='editFile' type='file' accept='image/*' /></div><div class='field'><label>Or image URL</label><input id='editValue' type='text' value='${card.photo}' /></div>`;
+      if(field === 'name') html = `<div class='field'><label>Name</label><input id='editValue' type='text' value='${card.name}' /></div>`;
+      if(field === 'title') html = `<div class='field'><label>Job title</label><input id='editValue' type='text' value='${card.job_title}' /></div>`;
+      if(field === 'company') html = `<div class='field'><label>Company</label><input id='editValue' type='text' value='${card.company}' /></div>`;
+      if(field === 'bio') html = `<div class='field'><label>Bio</label><textarea id='editValue' maxlength='180'>${card.bio}</textarea></div>`;
+      if(field === 'phone') html = `<div class='field'><label>Phone</label><input id='editValue' type='tel' value='${card.phone_number}' /></div>`;
+      if(field === 'whatsapp') html = `<div class='field'><label>WhatsApp</label><input id='editValue' type='tel' value='${card.whatsapp}' /></div>`;
+      if(field === 'cover') html = `<div class='field'><label>Cover image URL</label><input id='editValue' type='text' value='${card.cover_image}' /></div>`;
+      slot.innerHTML = html;
+      $('#editTitle').textContent = `${t.editTitle}`;
+      $('#editHint').textContent = field === 'photo' ? 'Replace the photo and update the card instantly.' : 'Update the selected field and see the card change instantly.';
+      openModal(els.editModal);
+      const file = $('#editFile');
+      if(file){ file.addEventListener('change', e=>{ const f = e.target.files[0]; if(!f) return; const reader = new FileReader(); reader.onload = ()=>{ $('#editValue').value = reader.result; }; reader.readAsDataURL(f); }); }
+    }
+
+    function saveEdit(){
+      const v = $('#editValue')?.value?.trim();
+      if(!state.editedField || v == null){ closeModal(els.editModal); return; }
+      if(state.editedField === 'name') state.card.name = v;
+      if(state.editedField === 'title') state.card.job_title = v;
+      if(state.editedField === 'company') state.card.company = v;
+      if(state.editedField === 'bio') state.card.bio = v;
+      if(state.editedField === 'phone'){ state.card.phone_number = v; state.card.phone = v; }
+      if(state.editedField === 'whatsapp') state.card.whatsapp = v;
+      if(state.editedField === 'photo') state.card.photo = v;
+      if(state.editedField === 'cover') state.card.cover_image = v;
+      save(); render(); toast('Updated'); closeModal(els.editModal);
+    }
+
+    function createCard(){
+      if(!state.card.phone_number && !state.card.phone){ openEditor('phone'); return; }
+      state.card.card_id = state.card.card_id || `z_${Math.random().toString(36).slice(2,9)}_${Date.now().toString(36)}`;
+      state.card.status = 'published';
+      state.card.created_at = state.card.created_at || new Date().toISOString();
+      save(); render(); $('#successUrl').textContent = publicUrl(); openModal(els.successModal); toast('Card created');
+    }
+
+    function shareCard(){ const url = publicUrl(); if(navigator.share){ navigator.share({title:`${state.card.name} — Z Card`, text:'My Z Card', url}).catch(()=>{}); } else navigator.clipboard.writeText(url).then(()=>toast('Link copied')).catch(()=>toast('Copy unavailable')); }
+    function copyLink(){ navigator.clipboard.writeText(publicUrl()).then(()=>toast('Link copied')).catch(()=>toast('Copy unavailable')); }
+    function openQr(){ els.qrImg.src = qrUrl(); openModal(els.qrModal); }
+
+    function bind(){
+      $('#themeToggle').addEventListener('click',()=> setTheme(state.theme === 'dark' ? 'light' : 'dark'));
+      $('#langToggle').addEventListener('click',()=>{ setLang(state.lang === 'ar' ? 'en' : 'ar'); render(); });
+      $('#heroExample').addEventListener('click',()=> document.getElementById('builder').scrollIntoView({behavior:'smooth', block:'start'}));
+      $('#createBtn').addEventListener('click', createCard);
+      $('#stickyShare').addEventListener('click', shareCard);
+      $('#stickyQr').addEventListener('click', openQr);
+      $('#navCreate').addEventListener('click', ()=>document.getElementById('builder').scrollIntoView({behavior:'smooth', block:'start'}));
+      $('#dockCall').addEventListener('click', ()=>toast(state.lang === 'ar' ? 'فتح الاتصال' : 'Open call'));
+      $('#dockWa').addEventListener('click', ()=>toast(state.lang === 'ar' ? 'فتح واتساب' : 'Open WhatsApp'));
+      document.addEventListener('click', e=>{
+        const edit = e.target.closest('[data-edit]')?.dataset.edit;
+        const action = e.target.closest('[data-action]')?.dataset.action;
+        if(edit){ openEditor(edit); }
+        if(action === 'share') shareCard();
+        if(action === 'copy') copyLink();
+        if(action === 'qr' || action === 'open-qr') openQr();
+        if(action === 'save-contact') toast(state.lang === 'ar' ? 'تم حفظ جهة الاتصال' : 'Contact saved');
+        if(action === 'scroll-example') document.getElementById('builder').scrollIntoView({behavior:'smooth', block:'start'});
+        if(action === 'close-modal') closeModal(els.editModal);
+        if(action === 'close-qr') closeModal(els.qrModal);
+        if(action === 'close-success') closeModal(els.successModal);
+        if(action === 'cancel-edit') closeModal(els.editModal);
+        if(action === 'save-edit') saveEdit();
+      });
+      document.addEventListener('keydown', e=>{ if(e.key === 'Escape'){ closeModal(els.editModal); closeModal(els.qrModal); closeModal(els.successModal); } });
+      let last = window.scrollY; window.addEventListener('scroll',()=>{ const y = window.scrollY; $('#dock').classList.toggle('hide', y > 160 && y > last); els.stickyHead.classList.toggle('show', y > 120); last = y; }, {passive:true});
+      setTheme(state.theme); setLang(state.lang); render();
+    }
+
+    load(); bind();
+  </script>
+</body>
+</html>
