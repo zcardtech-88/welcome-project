@@ -71,13 +71,14 @@
           <button class="bio field edit-trigger" id="bioField" data-edit="short_bio" type="button"></button>
 
           <div class="quick-actions">
-            <button class="qa" data-edit="phone_number" type="button" id="callBtn"><span>✆</span><small data-i18n="call">اتصال</small></button>
-            <button class="qa" data-edit="whatsapp_number" type="button" id="waBtn"><span>◌</span><small data-i18n="whatsapp">واتساب</small></button>
-            <button class="qa" data-edit="email" type="button" id="emailBtn"><span>@</span><small data-i18n="email">إيميل</small></button>
+            <button class="qa edit-trigger" data-edit="phone_number" type="button" id="callBtn"><span>✆</span><small data-i18n="call">اتصال</small></button>
+            <button class="qa edit-trigger" data-edit="whatsapp_number" type="button" id="waBtn"><span>◌</span><small data-i18n="whatsapp">واتساب</small></button>
+            <button class="qa edit-trigger" data-edit="email" type="button" id="emailBtn"><span>@</span><small data-i18n="email">إيميل</small></button>
             <button class="qa" data-edit="save_contact" type="button" id="saveContactBtn"><span>＋</span><small data-i18n="save_contact">حفظ جهة الاتصال</small></button>
           </div>
 
           <div class="social-row" id="socialRow" aria-label="روابط التواصل"></div>
+          <div class="link-row" id="linkRow" aria-label="روابط إضافية"></div>
 
           <div class="card-foot">
             <button class="foot-btn" data-edit="qr_code" type="button" data-i18n="qr">QR Code</button>
@@ -110,8 +111,8 @@
 
   <div class="dock" id="dock">
     <div class="dock-inner">
-      <button type="button" data-edit="phone_number" id="dockCall" data-i18n="call">اتصال</button>
-      <button type="button" data-edit="whatsapp_number" id="dockWa" data-i18n="whatsapp">واتساب</button>
+      <button type="button" id="dockCall" data-action="call" data-i18n="call">اتصال</button>
+      <button type="button" id="dockWa" data-action="whatsapp" data-i18n="whatsapp">واتساب</button>
       <button type="button" data-share data-i18n="share">مشاركة</button>
       <button type="button" data-qr data-i18n="qr">QR Code</button>
     </div>
@@ -130,14 +131,14 @@
           <input type="file" id="imageFile" accept="image/*" />
         </div>
 
-        <div class="field">
+        <div class="field" id="editorInputGroup">
           <label id="editorInputLabel" for="editorInput"></label>
-          <input id="editorInput" type="text" />
+          <input id="editorInput" type="text" data-i18n-placeholder="type_here" />
         </div>
 
         <div class="field" id="textareaGroup" hidden>
           <label id="editorTextLabel" for="editorTextArea"></label>
-          <textarea id="editorTextArea" rows="4"></textarea>
+          <textarea id="editorTextArea" rows="4" data-i18n-placeholder="write_bio"></textarea>
         </div>
 
         <div class="field" id="secondaryInputGroup" hidden>
