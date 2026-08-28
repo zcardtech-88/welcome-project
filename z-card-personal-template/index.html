@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="description" content="Z Card Personal mobile digital card template." />
+  <title>Z Card Personal Template</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="page-topbar" aria-label="Template controls">
+      <div class="brand-lockup">
+        <span class="brand-mark">Z</span>
+        <span class="brand-text">CARD</span>
+      </div>
+      <div class="topbar-actions">
+        <button class="chip-btn" id="langToggle" type="button" aria-label="Switch language">AR</button>
+        <button class="chip-btn" id="themeToggle" type="button" aria-label="Toggle theme">☼</button>
+      </div>
+    </header>
+
+    <main class="stage" id="stage">
+      <article class="phone-card" id="phoneCard" aria-label="Z Card Personal template">
+        <header class="compact-header" id="compactHeader" aria-hidden="true"></header>
+
+        <section class="hero" id="heroMount" aria-label="Main profile"></section>
+        <section class="quick-actions" id="actionsMount" aria-label="Quick actions"></section>
+        <div class="accordions" id="accordionMount" aria-label="Template sections"></div>
+
+        <div class="bottom-spacer" aria-hidden="true"></div>
+      </article>
+    </main>
+  </div>
+
+  <button class="floating-dock" id="dock" type="button" aria-label="Quick actions dock"></button>
+
+  <dialog id="modal" class="modal" aria-label="Template modal"></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
