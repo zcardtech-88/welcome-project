@@ -7,7 +7,7 @@
   <meta name="description" content="Z Personal — focused editable digital identity card." />
   <title>Z Personal — Focused Smart Card</title>
   <link rel="stylesheet" href="styles.css" />
-  <script defer src="app.js"></script>
+  <script defer src="app-final.js"></script>
 </head>
 <body>
   <header class="topbar">
@@ -24,6 +24,10 @@
       <div class="eyebrow" data-i18n="eyebrow">Z PERSONAL</div>
       <h1 data-i18n="headline">بدّل بيانات الكارد ببياناتك</h1>
       <p class="lead" data-i18n="lead">اضغط على أي عنصر داخل الكارد لتعديله، ثم احفظ التغييرات وشاهد بطاقتك تتحول إلى هويتك الخاصة.</p>
+      <div class="intro-badges">
+        <span data-i18n="badge_free">مجاني تمامًا</span>
+        <span data-i18n="badge_analytics">تحليلات مدمجة</span>
+      </div>
       <p class="sub" data-i18n="sub">صورة • اسم • وظيفة • هاتف • واتساب • شركة • نبذة • روابط • QR • مشاركة</p>
       <div class="intro-note" data-i18n="intro_note">واجهة واحدة بسيطة. كارد واحد فقط. لا صفحات طويلة.</div>
     </section>
@@ -64,14 +68,13 @@
             <button class="qa edit-trigger" data-edit="phone_number" type="button" id="callBtn"><span>✆</span><small data-i18n="call">اتصال</small></button>
             <button class="qa edit-trigger" data-edit="whatsapp_number" type="button" id="waBtn"><span>◌</span><small data-i18n="whatsapp">واتساب</small></button>
             <button class="qa edit-trigger" data-edit="email" type="button" id="emailBtn"><span>@</span><small data-i18n="email">إيميل</small></button>
-            <button class="qa" data-edit="save_contact" type="button" id="saveContactBtn"><span>＋</span><small data-i18n="save_contact">حفظ جهة الاتصال</small></button>
+            <button class="qa" data-action="save_contact" type="button" id="saveContactBtn"><span>＋</span><small data-i18n="save_contact">حفظ جهة الاتصال</small></button>
           </div>
 
           <div class="social-row" id="socialRow" aria-label="روابط التواصل"></div>
-          <div class="link-row" id="linkRow" aria-label="روابط إضافية"></div>
 
           <div class="card-foot">
-            <button class="foot-btn" data-edit="qr_code" type="button" data-i18n="qr">QR Code</button>
+            <button class="foot-btn" data-action="qr" type="button" data-i18n="qr">QR Code</button>
             <button class="foot-btn" data-share type="button" data-i18n="share">مشاركة</button>
           </div>
         </div>
@@ -104,7 +107,7 @@
       <button type="button" id="dockCall" data-action="call" data-i18n="call">اتصال</button>
       <button type="button" id="dockWa" data-action="whatsapp" data-i18n="whatsapp">واتساب</button>
       <button type="button" data-share data-i18n="share">مشاركة</button>
-      <button type="button" data-qr data-i18n="qr">QR Code</button>
+      <button type="button" data-action="qr" data-i18n="qr">QR Code</button>
     </div>
   </div>
 
@@ -131,18 +134,6 @@
           <textarea id="editorTextArea" rows="4" data-i18n-placeholder="write_bio"></textarea>
         </div>
 
-        <div class="field" id="secondaryInputGroup" hidden>
-          <label id="secondaryInputLabel" for="secondaryInput"></label>
-          <input id="secondaryInput" type="text" />
-        </div>
-
-        <div class="field" id="qrPreviewGroup" hidden>
-          <div class="qr-box">
-            <img id="qrImage" alt="QR Code" />
-            <small data-i18n="scan_to_open">امسح لفتح البطاقة</small>
-          </div>
-        </div>
-
         <div class="actions">
           <button class="btn btn-gold" type="submit" data-i18n="save">حفظ</button>
           <button class="btn btn-soft" type="button" data-close="editorModal" data-i18n="cancel">إلغاء</button>
@@ -161,6 +152,16 @@
         <button class="btn btn-gold" type="button" id="nativeShareBtn" data-i18n="native_share">مشاركة</button>
         <button class="btn btn-soft" type="button" id="copyLinkBtn" data-i18n="copy_link">نسخ الرابط</button>
       </div>
+    </div>
+  </div>
+
+  <div class="modal" id="qrModal" aria-hidden="true">
+    <div class="panel">
+      <button class="close" type="button" data-close="qrModal">×</button>
+      <div class="eyebrow small" data-i18n="qr">QR Code</div>
+      <h3 data-i18n="qr_headline">امسح لفتح البطاقة</h3>
+      <p data-i18n="qr_text">هذا رمز سريع لفتح البطاقة الحالية ومشاركتها.</p>
+      <div class="qr-box"><img id="qrImage" alt="QR Code" /></div>
     </div>
   </div>
 
