@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#FAFAF8" />
+  <meta name="description" content="Z Card Personal — create your free personal digital identity card." />
+  <title>Z Card Personal — الهوية الرقمية الذكية</title>
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="preconnect" href="https://api.qrserver.com" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Z Card"><span class="brand-z">Z</span><span>CARD</span></a>
+
+    <nav class="nav-links" aria-label="روابط أساسية">
+      <a href="#how">كيف يعمل</a>
+      <a href="#examples">أمثلة</a>
+      <a href="#faq">الأسئلة</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="تبديل الوضع">☼</button>
+      <a class="btn btn-gold btn-small" href="#builder">إنشاء بطاقة</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section-wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Z PERSONAL</span>
+        <h1>هويتك الرقمية.<br><em>كلها في بطاقة واحدة.</em></h1>
+        <p class="hero-lead">أنشئ كارت Z الشخصي مجانًا وشارك معلوماتك المهنية وروابطك ووسائل التواصل برابط واحد أنيق.</p>
+        <p class="hero-sub">واجهة بسيطة، هادئة، وموثوقة. تبدأ من المعاينة الحية وتنتهي بنشر البطاقة ومشاركتها فورًا.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-gold" href="#builder">إنشاء Z Card مجاني</a>
+          <a class="btn btn-ghost" href="#examples">عرض مثال</a>
+        </div>
+        <p class="reassure">مجاني • لا يحتاج بطاقة بنكية • أقل من دقيقة</p>
+      </div>
+
+      <div class="hero-visual">
+        <div class="float-stat stat-a"><strong>1,248</strong><span>مشاهدة للملف</span></div>
+        <div class="float-stat stat-b"><strong>+87</strong><span>مشاركة هذا الأسبوع</span></div>
+
+        <article class="identity-card theme-white" id="heroCard">
+          <div class="card-top">
+            <span class="mini-brand">Z CARD</span>
+            <span class="verified-dot">✓ موثق</span>
+          </div>
+
+          <img class="avatar-lg" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=85" alt="صورة شخصية" loading="lazy" />
+
+          <div class="identity">
+            <h3 data-preview="name">سارة الحربي</h3>
+            <p data-preview="title">Senior Graphic Designer</p>
+            <span data-preview="company">Creative Studio</span>
+          </div>
+
+          <p class="bio" data-preview="bio">مصممة جرافيك شغوفة ببناء هويات بصرية حديثة وأنظمة براند وتجارب رقمية بسيطة وأنيقة.</p>
+
+          <div class="quick-grid">
+            <a data-action-link="tel" href="tel:+966500000000">اتصال</a>
+            <a data-action-link="whatsapp" href="https://wa.me/966500000000" target="_blank" rel="noreferrer">واتساب</a>
+            <a data-action-link="email" href="mailto:sara@example.com">إيميل</a>
+            <button type="button" data-scroll="builder">حفظ جهة الاتصال</button>
+          </div>
+
+          <div class="social-row" id="heroSocialRow">
+            <a href="#builder" title="LinkedIn">in</a>
+            <a href="#builder" title="Instagram">ig</a>
+            <a href="#builder" title="Website">web</a>
+            <a href="#builder" title="Portfolio">⌁</a>
+          </div>
+
+          <div class="card-footer">
+            <button type="button" class="share-mini" data-action="share">مشاركة</button>
+            <button type="button" class="qr-mini" data-action="qr">QR</button>
+          </div>
+
+          <div class="qr-float">
+            <span class="qr-grid">▦</span>
+            <div>
+              <strong>QR Code</strong>
+              <small>امسح لفتح البطاقة</small>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="builder section-wrap" id="builder">
+      <div class="section-heading">
+        <span class="eyebrow">إنشاء مباشر</span>
+        <h2>أنشئ بطاقتك Z خلال دقائق.</h2>
+        <p>أدخل بياناتك الأساسية، وشاهد البطاقة تتغير أمامك فورًا.</p>
+      </div>
+
+      <div class="builder-shell">
+        <form class="builder-form" id="cardForm">
+          <div class="form-tabs">
+            <button class="active" type="button" data-tab="edit">تعديل</button>
+            <button type="button" data-tab="preview">معاينة</button>
+          </div>
+
+          <label>الاسم الكامل
+            <input id="fullName" name="full_name" value="سارة الحربي" required />
+          </label>
+
+          <label>المسمى الوظيفي
+            <input id="jobTitle" name="job_title" value="Senior Graphic Designer" required />
+          </label>
+
+          <label>رقم الهاتف
+            <input id="phone" name="phone_number" value="+966 50 000 0000" inputmode="tel" required />
+          </label>
+
+          <label>صورة الملف
+            <input id="profilePhoto" name="profile_photo" value="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=85" />
+          </label>
+
+          <label>نبذة قصيرة
+            <textarea id="shortBio" name="short_bio" rows="3">مصممة جرافيك شغوفة ببناء هويات بصرية حديثة وأنظمة براند وتجارب رقمية بسيطة وأنيقة.</textarea>
+          </label>
+
+          <div class="form-row">
+            <label>واتساب
+              <input id="whatsapp" value="966500000000" />
+            </label>
+            <label>إنستغرام
+              <input id="instagram" value="instagram.com/sara" />
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>لينكدإن
+              <input id="linkedin" value="linkedin.com/in/sara" />
+            </label>
+            <label>الموقع
+              <input id="website" value="sara.design" />
+            </label>
+          </div>
+
+          <label>الملف / البورتفوليو
+            <input id="portfolio" value="behance.net/sara" />
+          </label>
+
+          <div class="theme-picker">
+            <span>ثيم البطاقة</span>
+            <div>
+              <button type="button" class="swatch active" data-card-theme="theme-white">أبيض</button>
+              <button type="button" class="swatch" data-card-theme="theme-gold">ذهبي</button>
+              <button type="button" class="swatch" data-card-theme="theme-glass">زجاجي</button>
+              <button type="button" class="swatch" data-card-theme="theme-dark">داكن</button>
+            </div>
+          </div>
+
+          <button class="btn btn-gold full" type="submit">إنشاء Z Card</button>
+          <p class="tiny-note">هذا الديمو ينشئ بطاقة محلية فورًا، ويمكن ربطه لاحقًا بواجهة الحساب الحقيقية بدون تغيير الواجهة.</p>
+        </form>
+
+        <div class="builder-preview-wrap">
+          <div class="preview-label">
+            <span>معاينة مباشرة</span>
+            <span id="previewStatus">جاهز</span>
+          </div>
+
+          <article class="identity-card theme-white" id="liveCard">
+            <div class="card-top">
+              <span class="mini-brand">Z CARD</span>
+              <span class="verified-dot">✓ موثق</span>
+            </div>
+
+            <img class="avatar-lg" id="previewImage" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=85" alt="معاينة الصورة الشخصية" loading="lazy" />
+
+            <div class="identity">
+              <h3 id="previewName">سارة الحربي</h3>
+              <p id="previewTitle">Senior Graphic Designer</p>
+              <span id="previewCompany">Creative Studio</span>
+            </div>
+
+            <p class="bio" id="previewBio">مصممة جرافيك شغوفة ببناء هويات بصرية حديثة وأنظمة براند وتجارب رقمية بسيطة وأنيقة.</p>
+
+            <div class="quick-grid">
+              <button type="button" data-demo="call">اتصال</button>
+              <button type="button" data-demo="whatsapp">واتساب</button>
+              <button type="button" data-demo="email">إيميل</button>
+              <button type="button" data-demo="save">حفظ جهة الاتصال</button>
+            </div>
+
+            <div class="social-row" id="previewSocialRow">
+              <span>in</span>
+              <span>ig</span>
+              <span>web</span>
+              <span>⌁</span>
+            </div>
+
+            <div class="card-footer">
+              <button type="button" class="share-mini" data-action="share">مشاركة</button>
+              <button type="button" class="qr-mini" data-action="qr">QR</button>
+            </div>
+          </article>
+
+          <div class="preview-tools">
+            <button type="button" data-action="copy">نسخ الرابط</button>
+            <button type="button" data-action="share">مشاركة الجهاز</button>
+            <button type="button" data-action="qr">إنشاء QR</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="value section-wrap" id="value">
+      <div class="section-heading">
+        <span class="eyebrow">فائدة واحدة</span>
+        <h2>كل ما تحتاجه. بطاقة واحدة.</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article><span>01</span><h3>هويتك</h3><p>الاسم، المسمى، والسيرة بشكل أنيق ومباشر.</p></article>
+        <article><span>02</span><h3>التواصل</h3><p>اتصال، واتساب، وإيميل في مكان واحد.</p></article>
+        <article><span>03</span><h3>روابطك</h3><p>الموقع، السوشيال، والبورتفوليو.</p></article>
+        <article><span>04</span><h3>أعمالك</h3><p>اعرض ما يعرّفك بسرعة وثقة.</p></article>
+      </div>
+    </section>
+
+    <section class="how section-wrap" id="how">
+      <div class="section-heading">
+        <span class="eyebrow">كيف يعمل</span>
+        <h2>ثلاث خطوات بسيطة.</h2>
+      </div>
+      <div class="steps">
+        <article><span>01</span><h3>إنشاء</h3><p>أدخل المعلومات الأساسية.</p></article>
+        <div class="step-line"></div>
+        <article><span>02</span><h3>تخصيص</h3><p>اختر الثيم وأضف روابطك.</p></article>
+        <div class="step-line"></div>
+        <article><span>03</span><h3>مشاركة</h3><p>أرسل الرابط أو QR.</p></article>
+      </div>
+    </section>
+
+    <section class="examples section-wrap" id="examples">
+      <div class="section-heading">
+        <span class="eyebrow">أمثلة</span>
+        <h2>شكل البطاقة النهائي.</h2>
+      </div>
+      <div class="example-row">
+        <article class="mini-card"><span>مُؤَسِّس</span><h3>Omar Khaled</h3><p>Founder · Cairo</p><div class="mini-actions">Call · WhatsApp · Website</div></article>
+        <article class="mini-card"><span>مصممة</span><h3>سارة الحربي</h3><p>Senior Designer · Riyadh</p><div class="mini-actions">Portfolio · Instagram · LinkedIn</div></article>
+        <article class="mini-card"><span>مطور</span><h3>Adam Chen</h3><p>Frontend Engineer · Dubai</p><div class="mini-actions">GitHub · LinkedIn · Email</div></article>
+        <article class="mini-card"><span>محتوى</span><h3>Maya Noor</h3><p>Creator · Jeddah</p><div class="mini-actions">Gallery · YouTube · Website</div></article>
+      </div>
+    </section>
+
+    <section class="app section-wrap" id="app">
+      <div class="app-copy">
+        <span class="eyebrow">التطبيق</span>
+        <h2>احتفظ ببطاقتك معك دائمًا.</h2>
+        <p>حمّل تطبيق Z Card لحفظ بطاقتك وإدارتها في أي وقت.</p>
+        <div class="store-row">
+          <a href="#" aria-label="App Store placeholder"> App Store <small>PLACEHOLDER</small></a>
+          <a href="#" aria-label="Google Play placeholder">▶ Google Play <small>PLACEHOLDER</small></a>
+        </div>
+      </div>
+      <div class="phone-mock">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <span>Z CARD</span>
+          <h3>My Z Card</h3>
+          <div class="screen-profile">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=220&q=80" alt="تطبيق Z Card" loading="lazy" />
+            <div><strong>سارة الحربي</strong><small>Senior Graphic Designer</small></div>
+          </div>
+          <div class="screen-grid">
+            <span>✎ تعديل</span><span>↗ مشاركة</span><span>▦ QR</span><span>◫ Analytics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq section-wrap" id="faq">
+      <div class="section-heading">
+        <span class="eyebrow">الأسئلة الشائعة</span>
+        <h2>إجابات سريعة.</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>ما هو Z Card؟</summary>
+          <p>Z Card منصة بطاقة رقمية ذكية تسمح بمشاركة هويتك المهنية وروابطك وتفاصيلك عبر رابط واحد أنيق.</p>
+        </details>
+        <details>
+          <summary>هل إنشاء Z Personal مجاني؟</summary>
+          <p>نعم، تجربة البطاقة الشخصية مصممة لتكون مجانية وسهلة الإنشاء والمشاركة.</p>
+        </details>
+        <details>
+          <summary>هل يمكنني مشاركة البطاقة على واتساب والسوشيال؟</summary>
+          <p>نعم، يمكن مشاركة البطاقة كرابط أو QR أو باستخدام المشاركة الطبيعية في الجهاز.</p>
+        </details>
+        <details>
+          <summary>كيف أحفظ بطاقتي في التطبيق؟</summary>
+          <p>التدفق المقصود هو تسجيل الدخول باستخدام نفس رقم الهاتف، ثم ربط البطاقة بالحساب من خلال API حقيقي لاحقًا.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="final-cta section-wrap">
+      <span class="eyebrow">Z PERSONAL</span>
+      <h2>أنشئ هويتك الرقمية.</h2>
+      <p>أول انطباع عنك يمكن أن يكون رابطًا واحدًا.</p>
+      <a class="btn btn-gold" href="#builder">إنشاء Z Card مجاني</a>
+    </section>
+  </main>
+
+  <footer class="footer section-wrap">
+    <div>
+      <a class="brand" href="#top"><span class="brand-z">Z</span><span>CARD</span></a>
+      <p>Personal Digital Identity</p>
+    </div>
+    <div class="footer-links">
+      <a href="#top">الرئيسية</a>
+      <a href="#builder">إنشاء البطاقة</a>
+      <a href="#examples">الأمثلة</a>
+      <a href="#faq">الأسئلة</a>
+      <a href="#">الخصوصية</a>
+      <a href="#">الشروط</a>
+    </div>
+    <div class="footer-note">© 2026 Z Card</div>
+  </footer>
+
+  <div class="modal" id="successModal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="modal-close" data-close="successModal" type="button">×</button>
+      <span class="eyebrow">تم إنشاء البطاقة</span>
+      <h2>بطاقتك Z جاهزة.</h2>
+      <p>تم إنشاء بطاقة محلية في هذا الديمو. عندما يتم ربط الـAPI الحقيقي، يمكن حفظها داخل الحساب تلقائيًا.</p>
+      <div class="modal-card-slot"></div>
+      <div class="modal-actions">
+        <button class="btn btn-gold" data-action="share" type="button">مشاركة البطاقة</button>
+        <button class="btn btn-ghost" data-action="copy" type="button">نسخ الرابط</button>
+      </div>
+      <small class="tiny-note">نقطة التكامل: card_id · phone_number · claim API.</small>
+    </div>
+  </div>
+
+  <div class="modal" id="qrModal" aria-hidden="true">
+    <div class="modal-panel qr-panel">
+      <button class="modal-close" data-close="qrModal" type="button">×</button>
+      <span class="eyebrow">QR CODE</span>
+      <h2>امسح لفتح البطاقة.</h2>
+      <div class="modal-card-slot" id="qrSlot"></div>
+      <div class="modal-actions">
+        <button class="btn btn-gold" data-action="copy" type="button">نسخ الرابط</button>
+        <button class="btn btn-ghost" data-close="qrModal" type="button">إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="sticky-cta" type="button" id="stickyCta">إنشاء Z Card مجاني</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
